@@ -150,14 +150,6 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                 {/* 2. Boutons d'Action Globaux (Lancer l'App & Repo Git) */}
                 <div className={`flex flex-wrap items-center gap-3 ${project.architectureDoc ? 'pt-4 border-t border-white/5' : ''}`}>
                   
-                  {/* Bouton Jaune pour Lancer l'App */}
-                  {project.href && (
-                    <a href={project.href} target="_blank" 
-                       className="flex items-center gap-2 px-6 py-3 bg-brand-gold text-black text-[10px] font-black uppercase tracking-widest hover:bg-yellow-500 transition-all shadow-[0_0_15px_rgba(255,184,0,0.2)]">
-                      Lancer l&apos;Application
-                    </a>
-                  )}
-                  
                   {/* Bouton Git */}
                   {project.repo && (
                     <a href={project.repo} target="_blank" 

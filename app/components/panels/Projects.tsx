@@ -32,58 +32,48 @@ const PROJECTS_DATA = [
     <div class="space-y-8 text-slate-300 font-sans text-[14px] leading-relaxed">
       <section>
         <h4 class="text-brand-gold font-black text-sm mb-3 border-b border-brand-gold/10 pb-2 uppercase tracking-tighter">
-          🛡️ K-Guard : MVP d'Orchestration DevSecOps & Plateforme de Défense Active (PoC)
+          🛡️ K-Guard : Plateforme de Défense Active & Observabilité (SOC)
         </h4>
-        <p class="mb-4 font-style: italic"  >
-          <strong>K-Guard</strong> est une solution de gouvernance dédiée aux environnements Kubernetes légers (K3s). 
-          Sa mission est d'automatiser le cycle de la <strong>défense active</strong> — audit de vulnérabilités, 
-          remédiation réseau et alerte en temps réel — afin de passer d'une sécurité passive à une posture proactive.
+        <p class="mb-4 italic">
+          <strong>K-Guard</strong> est une solution de gouvernance dédiée aux environnements Kubernetes (K3s). 
+          Elle automatise la détection, l'analyse et la réponse aux incidents (IR) en temps réel.
         </p>
         <p class="mb-8">
-          Développé en tant que <strong>MVP (Minimum Viable Product)</strong>, ce projet sert de démonstration technique pour 
-          l'implémentation de workflows <strong>DevSecOps</strong> en environnement Cloud-Native. Il illustre la 
-          convergence entre l'administration systèmes, l'automatisation réseau et la cybersécurité opérationnelle.
+          Ce MVP intègre une stack de sécurité avancée permettant de passer d'une surveillance passive à une 
+          <strong> posture proactive de défense active</strong>. Il illustre ma capacité à concevoir des systèmes 
+          fiables, hautement observables et sécurisés ("Secure by Design").
         </p>
       </section>
-    </div>
 
       <section class="space-y-6">
         <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px] flex items-center gap-2">
-           🎯 Piliers de Sécurité Implémentés
+            🎯 Stack Technique & Piliers de Sécurité
         </h4>
 
         <div class="space-y-6 pl-4 border-l border-white/5">
           <div>
-            <p class="text-white font-bold mb-1">1. 🛡️ Network Security & Zero Trust (Sentinel)</p>
-            <p>Protection basée sur le moindre privilège et la micro-segmentation automatisée par <strong>Ansible</strong>. 
-            Déploiement de <em>NetworkPolicies</em> instaurant un blocage total par défaut (Deny-All) sur les namespaces critiques.</p>
+            <p class="text-white font-bold mb-1">1. 🔍 Observabilité & SOC (Falco + ELK)</p>
+            <p>Détection d'anomalies en temps réel via <strong>Falco</strong>. Logs centralisés par <strong>Fluent-bit</strong>, 
+            indexés dans <strong>Elasticsearch</strong> et visualisés via un dashboard <strong>Kibana</strong> 
+            intégré au portail pour une réponse rapide aux incidents.</p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">2. 🔍 AppSec & Remédiation Active</p>
-            <p>K-Guard agit comme un agent <strong>SecOps</strong>. Intégration de <strong>Trivy</strong> pour l'audit SCA des images (CVE High/Critical). 
-            Remédiation automatisée via <em>Strategic Merge Patch</em>, optimisée pour un déploiement progressif (Rolling Update) limitant l'impact sur la disponibilité</p>
+            <p class="text-white font-bold mb-1">2. 📡 ChatOps & Alerte Active</p>
+            <p>Automatisation de l'alerting via des <strong>Webhooks Cisco Webex</strong>. 
+            Dès qu'une menace est détectée, le SOC notifie instantanément l'équipe SecOps pour une action de remédiation immédiate.</p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">3. 🔐 IAM & Cryptographie (Secure by Design)</p>
-            <p>Hachage <strong>Bcrypt</strong> (cost 12) via le CLI en Go et protection des endpoints par <strong>JWT (HS256)</strong> avec une expiration stricte à 10h.</p>
+            <p class="text-white font-bold mb-1">3. 🛡️ Network Security & Hardening</p>
+            <p>Architecture Zero-Trust utilisant des <strong>NetworkPolicies</strong> (Deny-All). 
+            Contrôle d'accès rigoureux et micro-segmentation des conteneurs pour limiter les mouvements latéraux en cas de compromission.</p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">4. 📡 ChatOps & Real-Time Alerting (Cisco Ecosystem)</p>
-            <p>Notification active via l'API <strong>Cisco Webex</strong>. K-Guard devient un membre actif de l'équipe SecOps en dispatchant des rapports d'audit formatés dès la détection de vulnérabilités critiques.</p>
-          </div>
-
-          <div>
-            <p class="text-white font-bold mb-1">5. ⚙️ Résilience & SecOps (CIA Triad)</p>
-            <ul class="list-none space-y-2 mt-2">
-              <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>Anti-DoS :</strong> Limits CPU/RAM strictes et <em>PersistentVolumeClaim</em> pour éviter les OOM Kills.</li>
-              <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>Hardening Edge :</strong> Restriction Ingress aux plages IP <strong>Cloudflare</strong> uniquement.</li>
-              <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>ACL (RFC 1918) :</strong> API verrouillée aux réseaux privés, bloquant tout trafic public non routé.</li>
-              <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>RBAC :</strong> ServiceAccount restreint avec ClusterRole sur mesure (moindre privilège).</li>
-              <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>Audit :</strong> Historisation immuable dans <strong>SQLite</strong> pour la traçabilité.</li>
-            </ul>
+            <p class="text-white font-bold mb-1">4. 🔐 IAM & Sécurité Opérationnelle</p>
+            <p>Authentication sécurisée par <strong>JWT</strong> et hachage fort (Bcrypt). 
+            Gestion de l'infrastructure via <strong>Ansible</strong> et sécurisation des endpoints avec <strong>Cloudflare</strong>.</p>
           </div>
         </div>
       </section>
@@ -96,7 +86,7 @@ const PROJECTS_DATA = [
     screenshots: [
         "/screenshots/kguard-0.png",
         "/screenshots/kguard-1.png", 
-        "/screenshots/kguard-2.png", 
+        "/screenshots/kguard-log.png", 
         "/screenshots/kguard-3.png", 
         "/screenshots/kguard-4.png", 
         "/screenshots/kguard-5.png", 
