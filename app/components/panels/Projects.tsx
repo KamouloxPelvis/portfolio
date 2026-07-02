@@ -84,18 +84,16 @@ const PROJECTS_DATA = [
     videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
     architectureDoc: "/docs/Rapport_Architecture_KGuard.pdf",
     screenshots: [
-        "/screenshots/kguard-0.png",
-        "/screenshots/kguard-1.png", 
+        "/screenshots/kguard-install.png",
         "/screenshots/kguard-log.png", 
-        "/screenshots/kguard-3.png", 
-        "/screenshots/kguard-4.png", 
-        "/screenshots/kguard-5.png", 
-        "/screenshots/kguard-6.png", 
-        "/screenshots/kguard-7.png",
-        "/screenshots/kguard-8.png",
-        "/screenshots/kguard-9.png",
-        "/screenshots/kguard-10.png",
-        "/screenshots/kguard-11.png",
+        "/screenshots/kguard-system_overview-1.png", 
+        "/screenshots/kguard-system_overview-2.png", 
+        "/screenshots/kguard-security.png", 
+        "/screenshots/kguard-network_map-1.png", 
+        "/screenshots/kguard-network_map-2.png", 
+        "/screenshots/kguard-settings.png",
+        "/screenshots/kguard-webex.png",
+        "/screenshots/kguard-docs.png"
     ] 
   },
   {
