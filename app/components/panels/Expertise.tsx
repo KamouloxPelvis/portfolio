@@ -78,12 +78,17 @@ export default function Expertise() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white/5 p-4 border-l-4 border-brand-gold">
           <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Infrastructure, Systèmes & Cloud</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">Linux (Debian), Windows Server (DNS, DHCP, AD, GPO, WSUS), Virtualisation (VMware Workstation, vSphere), Kubernetes, Docker, Cloudflare, Google APIs, IaC, VPS</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">
+            <span className="text-white/50 ml-2">SysAdmin:</span> Linux (Debian), Windows Server (DNS, DHCP, AD, GPO, WSUS), Virtualisation (VMware Workstation, vSphere), 
+            <span className="text-white/50 ml-2">Orchestration:</span> Kubernetes, Docker, Helm, 
+            <span className="text-white/50 ml-2">Cloud:</span> Reverse Proxy, Ingress (Nginx, Traefik), DNS & Load Balancing, Cloudflare, Google APIs, VPS</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
           <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Sécurité & Réseaux</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
-            Cisco IOS, VLAN Hardening, Switching, Routing, Ansible, VPN, HTTPS/SSL/TLS, Wireshark, nMap, Trivy, ClamAV, Falco, Wazuh, ELK.
+            <span className="text-white/50 ml-2">Réseaux & Automatisation:</span> Cisco IOS, VLAN Hardening, Switching, Routing, Ansible, 
+            <span className="text-white/50 ml-2">Sécurité:</span>SSH, VPN, HTTPS/SSL/TLS, Gestion des secrets (HashiCorp Vaule, Ansible Vault), 
+            <span className="text-white/50 ml-2">Monitoring:</span> Wireshark, nMap, Trivy, ClamAV, Falco, Wazuh, ELK.
           </p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
@@ -93,10 +98,11 @@ export default function Expertise() {
         <div className="bg-white/5 p-4 border-l-4 border-blue-400">
           <div className="text-blue-400 font-bold text-xs uppercase tracking-wider">Données & Observabilité</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
-            <span className="text-white/50">SQL:</span> SQL Server, SQLite •
+            <span className="text-white/50 ml-2">SQL:</span> SQL Server, SQLite •
             <span className="text-white/50 ml-2">NoSQL:</span> MongoDB • 
             <span className="text-white/50 ml-2">TSDB:</span> Prometheus (PromQL), Grafana •
             <span className="text-white/50 ml-2">Supervision réseau:</span> Zabbix
+            <span className="text-white/50 ml-2"> Stockage:</span> MinIO, S3 Storage, NFS, SMB
           </p>
         </div>
       </div>
