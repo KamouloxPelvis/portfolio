@@ -52,18 +52,14 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
   const getCaption = (index: number) => {
     const captions: Record<string, string[]> = {
       kguard: [
-        "Interface du CLI d'installation Go (TUI Bubble Tea)",
         "Vue d'ensemble des pods avec métriques, logs et remédiation rapide",
         "Console de logs temps réel du cluster",
-        "Audit SCA Trivy : Analyse des dépendances et CVE",
-        "Focus sur les vulnérabilités critiques détectées",
-        "Network Sentinel : Visualisation de la topologie réseau",
-        "Network Sentinel : Mapping des flux de données",
-        "Logs de remédiation active : Strategic Merge Patching",
-        "Scan de vulnérabilités sur image Nginx 1.18 (Simulation)",
-        "Configuration du bot de notification Cisco Webex",
-        "Interface de gestion des intégrations externes",
-        "Réception d'une alerte critique sur le client Cisco Webex",
+        "Runtime Security & Observability : Détection d'anomalies et alertes",
+        "Network Sentinel : Liste des pods autorisés et adressage",
+        "Network Sentinel : Topologie des flux réseau du cluster",
+        "Paramètres : Alertes Cisco Webex et gestion du cache",
+        "Docs et swagger : Documentation technique et API REST",
+        "Notifications sur le chat Webex pour les incidents et alertes de sécurité"
       ],
       monitoring: [
         "Dashboard Disponibilité : État du contrôleur Nginx Ingress",
