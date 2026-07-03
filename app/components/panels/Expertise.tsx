@@ -77,54 +77,37 @@ export default function Expertise() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white/5 p-4 border-l-4 border-brand-gold">
-          <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Infrastructure, Systèmes & Cloud</div>
+          <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Infrastructure & Cloud</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
-            <span className="text-white/50 ml-2">SysAdmin:</span> Linux (Debian), Windows Server (DNS, DHCP, AD, GPO, WSUS), Virtualisation (VMware Workstation, vSphere), 
-            <span className="text-white/50 ml-2">Orchestration:</span> Kubernetes, Docker, Helm, 
-            <span className="text-white/50 ml-2">Cloud:</span> Reverse Proxy, Ingress (Nginx, Traefik), DNS & Load Balancing, Cloudflare, Google APIs, VPS</p>
+            <span className="text-white/50 ml-2">Administration Système:</span> Linux (Debian), Windows Server (DNS, DHCP, AD, GPO, WSUS), Virtualisation (vSphere) •
+            <span className="text-white/50 ml-2">Orchestration & Conteneurs:</span> Kubernetes (K8s, K3s), Docker Compose, Docker, Helm •
+            <span className="text-white/50 ml-2">Réseau & Cloud:</span>Cloudflare, Google APIs, Reverse Proxy (Nginx, Traefik), DNS & Load Balancing •
+            <span className="text-white/50 ml-2"> Stockage:</span> MinIO, S3 Storage, NFS, SMB
+          </p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
           <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Sécurité & Réseaux</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
-            <span className="text-white/50 ml-2">Réseaux & Automatisation:</span> Cisco IOS, VLAN Hardening, Switching, Routing, Ansible, 
-            <span className="text-white/50 ml-2">Sécurité:</span>SSH, VPN, HTTPS/SSL/TLS, Gestion des secrets (HashiCorp Vaule, Ansible Vault), 
-            <span className="text-white/50 ml-2">Monitoring:</span> Wireshark, nMap, Trivy, ClamAV, Falco, Wazuh, ELK.
+            <span className="text-white/50 ml-2">Réseaux (Physiques):</span> Cisco IOS, VLAN Hardening, Switching/Routing •
+            <span className="text-white/50 ml-2">Sécurité opérationnelle:</span>SSH, VPN, HTTPS/SSL/TLS, Gestion des secrets (HashiCorp Vault, Ansible Vault) • 
+            <span className="text-white/50 ml-2">Audit & Sécurité:</span> Wireshark, nMap, Trivy, ClamAV, Falco, Wazuh
           </p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
           <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Automatisation</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Github Actions, Python, Bash, Typescript, Sentry, Bandit, codeQL, Dependabot, API REST.</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">
+            <span className="text-white/50 ml-2">CI/CD & IaC:</span>GitLab CI/CD, Github Actions, API REST, Ansible, Terraform •
+            <span className="text-white/50 ml-2">Langages:</span>Python, Bash, Typescript •
+            <span className="text-white/50 ml-2">Qualité & Sécurité du Code:</span> Sentry, Bandit, codeQL, Dependabot</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-blue-400">
           <div className="text-blue-400 font-bold text-xs uppercase tracking-wider">Données & Observabilité</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
-            <span className="text-white/50 ml-2">SQL:</span> SQL Server, SQLite •
-            <span className="text-white/50 ml-2">NoSQL:</span> MongoDB • 
-            <span className="text-white/50 ml-2">TSDB:</span> Prometheus (PromQL), Grafana •
-            <span className="text-white/50 ml-2">Supervision réseau:</span> Zabbix
-            <span className="text-white/50 ml-2"> Stockage:</span> MinIO, S3 Storage, NFS, SMB
+            <span className="text-white/50 ml-2">Base de Données:</span> SQL Server, SQLite, MongoDB •
+            <span className="text-white/50 ml-2">Observabilité:</span> Prometheus (PromQL), Grafana, Loki, ELK (ElasticSearch, Logstash, Kibana) •
+            <span className="text-white/50 ml-2">Supervision:</span> Zabbix
+            
           </p>
-        </div>
-      </div>
-
-      <div className="pt-6 border-t border-white/10">
-        <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider mb-4">
-          Compétences Spécialisées Cisco DevNet
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { label: "AUTOMATISATION RÉSEAU", desc: "Python (Netmiko, NAPALM), API Cisco (DNA Center, Meraki), Infrastructure Programmable (NETCONF/RESTCONF).", color: "border-brand-gold" },
-            { label: "SÉCURITÉ & AUDIT", desc: "Gestion sécurisée des secrets (CI/CD), Analyse statique (Bandit), Durcissement (Hardening) de clusters.", color: "border-brand-flame-p" },
-            { label: "INFRASTRUCTURE AGILE", desc: "Modèles de données YANG, Orchestration, Parsing de données structurées (JSON/XML).", color: "border-brand-flame-h" },
-            { label: "OBSERVABILITÉ", desc: "Monitoring, Télémétrie, Analyse de flux (Baseline comportementale)." }
-          ].map((item) => (
-            <div key={item.label} className={`bg-white/5 p-4 border-l-4 ${item.color}`}>
-              <div className="text-white font-bold text-[10px] uppercase tracking-wider">{item.label}</div>
-              <div className="text-[10px] text-slate-300 font-mono mt-2 leading-tight">
-                {item.desc}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
 
