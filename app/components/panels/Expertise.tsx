@@ -82,7 +82,7 @@ export default function Expertise() {
             <span className="text-white/50 ml-2">Administration Système:</span> Linux (Debian), Windows Server (DNS, DHCP, AD, GPO, WSUS), Virtualisation (vSphere) •
             <span className="text-white/50 ml-2">Orchestration & Conteneurs:</span> Kubernetes (K8s, K3s), Docker Compose, Docker, Helm •
             <span className="text-white/50 ml-2">Réseau & Cloud:</span>Cloudflare, Google APIs, Reverse Proxy (Nginx, Traefik), DNS & Load Balancing •
-            <span className="text-white/50 ml-2"> Stockage:</span> MinIO, S3 Storage, NFS, SMB
+            <span className="text-white/50 ml-2">Stockage:</span> MinIO, S3 Storage, NFS, SMB
           </p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">

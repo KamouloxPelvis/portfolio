@@ -27,58 +27,52 @@ const PROJECTS_DATA = [
     img: "/screenshots/capture_sec-infra-app.jpg",
     title: "K-Guard",
     stack: "FastAPI • Pydantic • Python 3.12 • Docker • Kubernetes • Trivy • APIs REST • Automated ACLs • Gestion TLS/SSL • Ansible",
-    shortDesc: "MVP d'Orchestration DevSecOps & Plateforme de Défense Active. Automatisation de l'audit de vulnérabilités, remédiation réseau et alerting en temps réel sur cluster K3s.",
-    desc: `
+    shortDesc: "Plateforme de monitoring pour cluster K3s. Intègre la détection d'anomalies via Falco, l'analyse centralisée sur stack ELK et alertes Cisco Webex.",
+    desc:`
     <div class="space-y-8 text-slate-300 font-sans text-[14px] leading-relaxed">
       <section>
         <h4 class="text-brand-gold font-black text-sm mb-3 border-b border-brand-gold/10 pb-2 uppercase tracking-tighter">
-          🛡️ K-Guard : Plateforme de Défense Active & Observabilité (SOC)
+          🛡️ K-Guard : Système d'observabilité pour Kubernetes (K3s)
         </h4>
-        <p class="mb-4 italic">
-          <strong>K-Guard</strong> est une solution de gouvernance dédiée aux environnements Kubernetes (K3s). 
-          Elle automatise la détection, l'analyse et la réponse aux incidents (IR) en temps réel.
-        </p>
         <p class="mb-8">
-          Ce MVP intègre une stack de sécurité avancée permettant de passer d'une surveillance passive à une 
-          <strong> posture proactive de défense active</strong>. Il illustre ma capacité à concevoir des systèmes 
-          fiables, hautement observables et sécurisés ("Secure by Design").
+          <strong>K-Guard</strong> est une plateforme de monitoring conçue pour les environnements Kubernetes (K3s). 
+          Son architecture repose sur la collecte et l'analyse centralisée des événements système pour fournir une visibilité 
+          sur l'état de sécurité de l'infrastructure.
         </p>
       </section>
 
       <section class="space-y-6">
         <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px] flex items-center gap-2">
-            🎯 Stack Technique & Piliers de Sécurité
+            ⚙️ Composants Techniques
         </h4>
 
         <div class="space-y-6 pl-4 border-l border-white/5">
           <div>
-            <p class="text-white font-bold mb-1">1. 🔍 Observabilité & SOC (Falco + ELK)</p>
-            <p>Détection d'anomalies en temps réel via <strong>Falco</strong>. Logs centralisés par <strong>Fluent-bit</strong>, 
-            indexés dans <strong>Elasticsearch</strong> et visualisés via un dashboard <strong>Kibana</strong> 
-            intégré au portail pour une réponse rapide aux incidents.</p>
+            <p class="text-white font-bold mb-1">1. 🔍 Collecte et Analyse</p>
+            <p>Détection des appels système via <strong>Falco</strong>. Les logs sont transmis par 
+            <strong>Fluent-bit</strong> vers une instance <strong>Elasticsearch</strong>, permettant leur exploitation via <strong>Kibana</strong>.</p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">2. 📡 ChatOps & Alerte Active</p>
-            <p>Automatisation de l'alerting via des <strong>Webhooks Cisco Webex</strong>. 
-            Dès qu'une menace est détectée, le SOC notifie instantanément l'équipe SecOps pour une action de remédiation immédiate.</p>
+            <p class="text-white font-bold mb-1">2. 📡 Système d'alerte</p>
+            <p>Envoi de notifications en temps réel par <strong>Webhooks Cisco Webex</strong> lors de la correspondance 
+            d'un événement système avec une règle définie.</p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">3. 🛡️ Network Security & Hardening</p>
-            <p>Architecture Zero-Trust utilisant des <strong>NetworkPolicies</strong> (Deny-All). 
-            Contrôle d'accès rigoureux et micro-segmentation des conteneurs pour limiter les mouvements latéraux en cas de compromission.</p>
+            <p class="text-white font-bold mb-1">3. 🛡️ Isolation réseau</p>
+            <p>Utilisation des <strong>NetworkPolicies</strong> Kubernetes pour définir les flux autorisés entre les conteneurs et limiter la surface d'exposition.</p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">4. 🔐 IAM & Sécurité Opérationnelle</p>
-            <p>Authentication sécurisée par <strong>JWT</strong> et hachage fort (Bcrypt). 
-            Gestion de l'infrastructure via <strong>Ansible</strong> et sécurisation des endpoints avec <strong>Cloudflare</strong>.</p>
+            <p class="text-white font-bold mb-1">4. 🔐 Développement et Accès</p>
+            <p>L'interface de contrôle est sécurisée par authentification <strong>JWT</strong> et le déploiement est géré via des outils d'infrastructure as code (IaC).</p>
           </div>
         </div>
       </section>
     </div>
-  `,
+    `,
+
     repo: "https://github.com/KamouloxPelvis/K-Guard",
     blogUrl: "https://blog.devopsnotes.org/articles/k-guard-orchestration-sre-et-audit-de-scurit-sur-k3s",
     videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
