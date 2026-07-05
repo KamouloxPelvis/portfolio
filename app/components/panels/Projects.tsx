@@ -27,7 +27,7 @@ const PROJECTS_DATA = [
     img: "/screenshots/capture_sec-infra-app.jpg",
     title: "K-Guard",
     stack: "FastAPI • Pydantic • Python 3.12 • Docker • Kubernetes • Trivy • APIs REST • Automated ACLs • Gestion TLS/SSL • Ansible",
-    shortDesc: "Plateforme de monitoring pour cluster K3s. Intègre la détection d'anomalies via Falco, l'analyse centralisée sur stack ELK et alertes Cisco Webex.",
+    shortDesc: "Plateforme de monitoring de sécurité : détection d'anomalies via Falco, analyse centralisée sur stack ELK et notifications d'alertes Cisco Webex.",
     desc:`
     <div class="space-y-8 text-slate-300 font-sans text-[14px] leading-relaxed">
       <section>
@@ -94,7 +94,7 @@ const PROJECTS_DATA = [
     img: "/screenshots/capture_monitoring.png",
     title: "Live Monitoring",
     stack: "Prometheus • Grafana • K3s • NodeExporter • Cadvisor",
-    shortDesc: "Écosystème d'observabilité complet dédié à la haute disponibilité et à la sécurité d'un cluster K3s de production (Prometheus, Grafana).",
+    shortDesc: "Écosystème d'observabilité Grafana / Prometheus : Dashbards de Disponibilité et de Sécurité sur cluster K3s DevOpsNotes.",
     desc: `
       <div class="space-y-6 text-slate-300 font-sans text-[13px] leading-relaxed">
         <p>Écosystème d'observabilité complet dédié à la haute disponibilité et à la sécurité d'un cluster <strong>K3s</strong> de production. Ce dashboard centralise les <strong>Golden Signals</strong> pour assurer un MCO (Maintien en Condition Opérationnelle) proactif via trois axes stratégiques :</p>
@@ -118,14 +118,14 @@ const PROJECTS_DATA = [
     img: "/screenshots/blog_devopsnotes.png",
     title: "Blog DevOpsNotes",
     stack: "React/Ts • Nodejs/Express • MongoDB • Docker • K3s • Nginx • GitLab CI • Cloudflare • Sentry télémetry  • Grafana Monitoring",
-    shortDesc: "Laboratoire Cloud-Native : architecture MERN durcie sous K3s, pipeline CI/CD automatisé GitLab et observabilité complète.",
+    shortDesc: "Laboratoire Cloud-Native & Blog technique communautaire. Error tracking et monitoring de Performance avec Sentry.",
     desc: `
           <div class="space-y-6 text-slate-300 font-sans text-[13px] leading-relaxed">
             <p>Plateforme d'échange technique communautaire conçue comme un laboratoire d'architecture <strong>Cloud-Native</strong>. Ce projet illustre l'implémentation complète d'une chaîne <strong>CI/CD</strong> sécurisée et automatisée.</p>
             
-            <p>L'application utilise une stack MERN durcie : le frontend React communique avec une API Node.js protégée par Cloudflare. La robustesse est assurée par une télémétrie <strong>Sentry</strong> intégrée, permettant un tracking d'erreurs en temps réel dès le déploiement sur le cluster Kubernete.</p>
+            <p>L'application utilise une stack MERN durcie : le frontend React communique avec une API Node.js protégée par Cloudflare. La robustesse est assurée par une télémétrie <strong>Sentry</strong> intégrée, permettant un tracking d'erreurs en temps réel dès le déploiement sur le cluster Kubernetes.</p>
             
-            <p>C'est ici que je documente mes recherches sur la sécurisation de la <em>Supply Chain</em> logicielle, de l'écriture du Dockerfile jusqu'au déploiement final via GitLab CI.</p>
+            <p>C'est ici que je documente mes recherches sur la sécurisation de la <em>Supply Chain</em> logicielle, de l'écriture du Dockerfile jusqu'au déploiement final via GitLab CI et GitHub Actions.</p>
           </div>
         `,    
     repo: "https://gitlab.com/portfolio-kamal-guidadou/devopsnotes-blog",

@@ -95,8 +95,10 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
         </div>
 
         <div className="overflow-y-auto p-6 custom-scrollbar">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-3 space-y-10">
+          <div className={`grid gap-8 ${project.id === 'blog' ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-4'}`}>
+            
+            {/* Contenu Principal */}
+            <div className={`space-y-10 ${project.id === 'blog' ? '' : 'lg:col-span-3'}`}>
               
               {/* Vidéo Pitch */}
               {project.videoPitch && (
@@ -116,15 +118,13 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                 </div>
               )}
 
-              {/* Description Technique */}
+              {/* Description */}
               <div className="text-sm font-sans leading-relaxed text-slate-300 prose prose-invert max-w-none"
                   dangerouslySetInnerHTML={{ __html: project.desc }} 
               />
               
-              {/* Zone d'Actions (PDF, App, Git) */}
+              {/* Zone d'Actions */}
               <div className="space-y-6">
-                
-                {/* 1. Bloc Architecture PDF (Uniquement si présent, ex: K-Guard) */}
                 {project.architectureDoc && (
                   <div className="p-6 border border-white/5 bg-white/[0.03] rounded-sm flex flex-col md:flex-row items-center gap-6 group hover:border-brand-flame-h/20 transition-colors">
                     <div className="w-24 aspect-[3/4] relative border border-white/10 shrink-0 shadow-lg">
@@ -132,9 +132,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                     </div>
                     <div className="space-y-3 flex-1">
                       <h5 className="text-white font-bold uppercase text-[11px] tracking-widest">Technical Architecture Report</h5>
-                      <p className="text-slate-400 text-[10px] font-sans leading-normal">
-                        Détails de l&apos;implémentation SRE, logique de remédiation active et micro-segmentation Sentinel.
-                      </p>
+                      <p className="text-slate-400 text-[10px] font-sans leading-normal">Détails de l&apos;implémentation SRE, logique de remédiation active et micro-segmentation Sentinel.</p>
                       <a href={project.architectureDoc} target="_blank"
                          className="inline-block px-6 py-3 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:opacity-90 transition-all">
                         Consulter le Rapport PDF
@@ -143,10 +141,13 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                   </div>
                 )}
 
-                {/* 2. Boutons d'Action Globaux (Lancer l'App & Repo Git) */}
                 <div className={`flex flex-wrap items-center gap-3 ${project.architectureDoc ? 'pt-4 border-t border-white/5' : ''}`}>
-                  
-                  {/* Bouton Git */}
+                  {project.id !== 'kguard' && project.href && (
+                    <a href={project.href} target="_blank" rel="noopener noreferrer"
+                       className="flex items-center gap-2 px-6 py-3 border border-brand-gold text-brand-gold text-[10px] font-bold uppercase tracking-widest hover:bg-brand-gold/10 transition-all">
+                      Lancer l&apos;application
+                    </a>
+                  )}
                   {project.repo && (
                     <a href={project.repo} target="_blank" 
                        className="flex items-center gap-2 px-6 py-3 border border-brand-flame-p text-brand-flame-p text-[10px] font-bold uppercase tracking-widest hover:bg-brand-flame-p hover:text-white transition-all">
@@ -155,25 +156,38 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                     </a>
                   )}
                 </div>
+              </div>
 
-              </div>
+              {/* Galerie Horizontale (UNIQUEMENT BLOG) */}
+              {project.id === 'blog' && (
+                <div className="pt-8 border-t border-white/10">
+                  <h4 className="text-white/40 font-mono text-[9px] uppercase tracking-[0.2em] mb-6">Visual Evidence</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {screenshots.map((img, i) => (
+                      <button key={i} onClick={() => setZoomedMedia({ src: img, index: i })}
+                        className="relative aspect-video border border-white/10 overflow-hidden bg-zinc-900 group cursor-zoom-in">
+                        <Image src={img} fill className="object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt="Evidence" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-            
-            {/* Sidebar des Screenshots (Gallery) */}
-            <div className="space-y-6 border-l border-white/5 pl-6 hidden lg:block">
-              <h4 className="text-white/40 font-mono text-[9px] uppercase tracking-[0.2em]">Visual Evidence</h4>
-              <div className="grid grid-cols-1 gap-3">
-                {screenshots.map((img, i) => (
-                  <button key={i} onClick={() => setZoomedMedia({ src: img, index: i })}
-                    className="relative aspect-video border border-white/10 overflow-hidden bg-zinc-900 group cursor-zoom-in">
-                    <Image src={img} fill className="object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt="Evidence thumbnail" />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-brand-gold/10">
-                      <span className="text-[10px] text-brand-gold font-bold uppercase tracking-tighter">Zoom</span>
-                    </div>
-                  </button>
-                ))}
+
+            {/* Sidebar (K-GUARD et MONITORING) */}
+            {project.id !== 'blog' && (
+              <div className="space-y-6 border-l border-white/5 pl-6 hidden lg:block">
+                <h4 className="text-white/40 font-mono text-[9px] uppercase tracking-[0.2em]">Visual Evidence</h4>
+                <div className="grid grid-cols-1 gap-3">
+                  {screenshots.map((img, i) => (
+                    <button key={i} onClick={() => setZoomedMedia({ src: img, index: i })}
+                      className="relative aspect-video border border-white/10 overflow-hidden bg-zinc-900 group cursor-zoom-in">
+                      <Image src={img} fill className="object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt="Evidence thumbnail" />
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </motion.div>
@@ -189,7 +203,6 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
             <button onClick={showPrev} className="absolute left-4 md:left-10 z-[120] p-4 text-white/20 hover:text-brand-gold transition-all group hidden md:block">
               <span className="text-6xl font-thin group-hover:-translate-x-2 block transition-transform">‹</span>
             </button>
-
             <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
               className="relative w-full h-full max-w-7xl flex flex-col items-center justify-center gap-6"
@@ -201,17 +214,13 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                   </motion.div>
                 </AnimatePresence>
               </div>
-
               <div className="flex flex-col items-center text-center">
-                <span className="text-brand-gold font-mono text-[10px] uppercase tracking-[0.4em] mb-2">
-                  Evidence {zoomedMedia.index + 1} / {screenshots.length}
-                </span>
+                <span className="text-brand-gold font-mono text-[10px] uppercase tracking-[0.4em] mb-2">Evidence {zoomedMedia.index + 1} / {screenshots.length}</span>
                 <p className="text-slate-200 font-sans text-sm md:text-base max-w-2xl bg-white/5 px-6 py-2 border border-white/10 rounded-sm">
                   {getCaption(zoomedMedia.index)}
                 </p>
               </div>
             </motion.div>
-
             <button onClick={showNext} className="absolute right-4 md:right-10 z-[120] p-4 text-white/20 hover:text-brand-gold transition-all group hidden md:block">
               <span className="text-6xl font-thin group-hover:translate-x-2 block transition-transform">›</span>
             </button>
@@ -219,5 +228,4 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  )};
