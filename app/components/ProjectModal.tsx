@@ -116,13 +116,13 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                     ></iframe>
                     
                   </div>
+                  <p className="mt-3 text-center italic text-brand-flame text-xs leading-relaxed max-w-2xl mx-auto">
+                    Vidéo illustrative : Présentation du concept K-Guard. Note : L&apos;écosystème a été mis à jour vers la v1.4.0 
+                    pour inclure des capacités avancées d&apos;analyse SOC et de micro-segmentation ; référez-vous au TDD pour les spécifications 
+                    techniques à jour.
+                  </p>
                 </div>
               )}
-              <p className="mt-3 text-center italic text-brand-flame text-xs leading-relaxed max-w-2xl mx-auto">
-                      Vidéo illustrative : Présentation du concept K-Guard. Note : L&apos;écosystème a été mis à jour vers la v1.4.0 
-                      pour inclure des capacités avancées d&apos;analyse SOC et de micro-segmentation ; référez-vous au TDD pour les spécifications 
-                      techniques à jour.
-                    </p>
 
               {/* Description */}
               <div className="text-sm font-sans leading-relaxed text-slate-300 prose prose-invert max-w-none"
