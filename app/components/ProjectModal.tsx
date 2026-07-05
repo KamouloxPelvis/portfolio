@@ -134,7 +134,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                       <h5 className="text-white font-bold uppercase text-[11px] tracking-widest">Dossier de Conception Technique | Technical Design Document</h5>
                       <p className="text-slate-400 text-[10px] font-sans leading-normal">Détails de l&apos;implémentation SRE, logique de remédiation active et micro-segmentation Sentinel.</p>
                       <a 
-                        href="/docs/dossier_de_conception_technique_K-Guard.pdf" 
+                        href="/docs/Dossier_de_conception_technique_K-Guard.pdf" 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block px-6 py-3 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:opacity-90 transition-all"
