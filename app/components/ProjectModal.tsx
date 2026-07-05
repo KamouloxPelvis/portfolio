@@ -131,11 +131,15 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                       <Image src="/docs/thumbnail_k-guard.png" fill className="object-cover opacity-60 group-hover:opacity-100 transition-opacity" alt="Architecture Report Thumbnail" />
                     </div>
                     <div className="space-y-3 flex-1">
-                      <h5 className="text-white font-bold uppercase text-[11px] tracking-widest">Technical Architecture Report</h5>
+                      <h5 className="text-white font-bold uppercase text-[11px] tracking-widest">Dossier de Conception Technique | Technical Design Document</h5>
                       <p className="text-slate-400 text-[10px] font-sans leading-normal">Détails de l&apos;implémentation SRE, logique de remédiation active et micro-segmentation Sentinel.</p>
-                      <a href={project.architectureDoc} target="_blank"
-                         className="inline-block px-6 py-3 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:opacity-90 transition-all">
-                        Consulter le Rapport PDF
+                      <a 
+                        href="/docs/dossier_de_conception_technique_K-Guard.pdf" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-6 py-3 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:opacity-90 transition-all"
+                      >
+                        Consulter le Dossier de Conception Technique PDF
                       </a>
                     </div>
                   </div>
