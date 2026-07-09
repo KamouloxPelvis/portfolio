@@ -65,7 +65,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
       {/* Bottom Section */}
       <div className="flex flex-wrap gap-4 pt-6 pb-2 mt-auto">
         <a 
-          href="/CV_DevOps_Infra.pdf" 
+          href="/CV_Admin_Kamal_Guidadou.pdf" 
           download 
           className="flex-1 md:flex-none px-8 py-4 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:brightness-110 transition-all"
         >
