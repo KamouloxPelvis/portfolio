@@ -18,7 +18,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
       {/* Ajout du padding-right (pr-32) pour laisser la place au badge */}
       <div className="space-y-4 pr-32"> 
         <div className="inline-block border border-brand-flame-h px-3 py-1 text-[10px] font-mono text-brand-flame-h uppercase tracking-widest">
-            OUVERT A DE NOUVELLES OPPORTUNITÉS
+            OUVERT A DE NOUVELLES OPPORTUNITÉS EN POSTE OU ALTERNANCE RENTRÉE 2026
         </div>
 
         <div className="flex items-center gap-6">
@@ -35,9 +35,14 @@ export default function Profil({ onContactClick }: ProfilProps) {
             <h3 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-[0.85] text-brand-skull">
               KAMAL <br /> GUIDADOU<span className="text-brand-flame-p">.</span>
             </h3>
-            <p className="text-[10px] font-mono text-brand-flame-p tracking-widest uppercase italic mt-2">
-              Expert DevOps, Infra & Sécurité
-            </p>
+            <div className="mt-4">
+              <p className="text-[12px] md:text-sm font-bold font-mono text-brand-skull uppercase tracking-widest">
+                Administrateur Systèmes et Réseaux
+              </p>
+              <p className="text-[10px] md:text-[11px] font-mono text-brand-flame-p tracking-widest uppercase italic mt-1">
+                Spécialisation DevOps & Sécurité
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -45,15 +50,15 @@ export default function Profil({ onContactClick }: ProfilProps) {
       {/* Middle Section */}
       <div className="max-w-3xl my-auto py-8">
         <p className="text-lg md:text-3xl font-mono text-brand-gold italic leading-tight mb-4">
-          &apos;Concevoir l&apos;infrastructure, automatiser la résilience, sécuriser le cycle de vie&apos;
+          &apos;Garantir la disponibilité, automatiser l&apos;agilité, durcir la sécurité&apos;
         </p>
         <p className="text-[11px] md:text-lg font-mono text-slate-400 border-l-4 border-brand-gold pl-6 italic leading-relaxed text-balance">
-          Expert DevOps, Infra & Sécurité, mon travail repose sur une expertise transverse : je maîtrise la 
-          <span className="text-brand-skull font-bold"> stabilité des réseaux physiques &amp; des protocoles hérités </span> (Administrateur d&apos;Infrastructures
-          Sécurisées) tout en déployant l&apos;agilité des pratiques DevSecOps (Cisco DevNet, Controle plane K3s K-Guard). Je conçois des infrastructures cloud-native 
-          sécurisées en gardant une vision unifiée, <span className="text-brand-skull font-bold"> du hardware aux clusters </span>, 
-          garantissant ainsi une maîtrise de la chaîne de transmission jusqu&apos;à l&apos;application, avec une orientation marquée vers la 
-          <span className="text-brand-skull font-bold"> sécurité opérationnelle</span>.
+          Administrateur Systèmes & Réseaux, mon cœur de métier repose sur la maîtrise rigoureuse des 
+          <span className="text-brand-skull font-bold"> infrastructures bas-niveau, du MCO et de la résilience réseau </span> 
+          (Titre Pro AIS). Convaincu que la sécurité se construit par la maîtrise technique, j&apos;emploie le 
+          <span className="text-brand-skull font-bold"> DevOps comme vecteur d&apos;automatisation </span> pour industrialiser le déploiement et la surveillance (IaC, Cisco DevNet). 
+          En transition progressive vers la cybersécurité, je conçois des environnements sécurisés par le design, 
+          <span className="text-brand-skull font-bold"> du hardware aux clusters </span>, avec une expertise forte en sécurité opérationnelle et SOC.
         </p>
       </div>
 
