@@ -22,71 +22,104 @@ export interface Project {
 
 const PROJECTS_DATA = [
   {
-    id: 'kguard',
-    href: "https://app.devopsnotes.org",
-    img: "/screenshots/capture_sec-infra-app.jpg",
-    title: "K-Guard",
-    stack: "FastAPI • Pydantic • Python 3.12 • Docker • Kubernetes • Trivy • APIs REST • Automated ACLs • Gestion TLS/SSL • Ansible",
-    shortDesc: "Plateforme de monitoring de sécurité : détection d'anomalies via Falco, analyse centralisée sur stack ELK et notifications d'alertes Cisco Webex.",
-    desc:`
+  id: 'kguard',
+  href: "https://app.devopsnotes.org",
+  img: "/screenshots/capture_sec-infra-app.jpg",
+  title: "K-Guard v1.5.0",
+  stack: "FastAPI • Python 3.12 • Kubernetes/K3s • Wazuh • Falco • ELK • Docker • Ansible • TLS/PKI • JWT • GitHub Actions",
+  shortDesc: "Plateforme DevSecOps pour K3s : sécurité runtime Falco, observabilité centralisée et inventaire Wazuh des endpoints en lecture seule.",
+  desc: `
     <div class="space-y-8 text-slate-300 font-sans text-[14px] leading-relaxed">
       <section>
         <h4 class="text-brand-gold font-black text-sm mb-3 border-b border-brand-gold/10 pb-2 uppercase tracking-tighter">
-          🛡️ K-Guard : Système d'observabilité pour Kubernetes (K3s)
+          🛡️ K-Guard v1.5.0 : observabilité et gouvernance de sécurité pour K3s
         </h4>
-        <p class="mb-8">
-          <strong>K-Guard</strong> est une plateforme de monitoring conçue pour les environnements Kubernetes (K3s). 
-          Son architecture repose sur la collecte et l'analyse centralisée des événements système pour fournir une visibilité 
-          sur l'état de sécurité de l'infrastructure.
+
+        <p class="mb-5">
+          <strong>K-Guard</strong> est une plateforme DevSecOps auto-hébergée, conçue pour superviser et administrer un cluster
+          <strong>Kubernetes K3s</strong>. Elle centralise les signaux de sécurité runtime, les événements d’infrastructure
+          et l’état de conformité des endpoints dans une interface orientée exploitation.
         </p>
+
+        <div class="border-l-2 border-brand-gold/40 bg-brand-gold/[0.04] px-4 py-3">
+          <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-1">
+            Nouveauté v1.5.0 — Endpoint & Compliance
+          </p>
+          <p class="text-slate-300">
+            Intégration sécurisée de <strong>Wazuh</strong> pour consulter l’inventaire des agents :
+            statut, hostname, adresse IP, système d’exploitation, architecture, groupe, version et dernière remontée.
+            Cette intégration est strictement <strong>read-only</strong>.
+          </p>
+        </div>
       </section>
 
       <section class="space-y-6">
         <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px] flex items-center gap-2">
-            ⚙️ Composants Techniques
+          ⚙️ Capacités techniques
         </h4>
 
         <div class="space-y-6 pl-4 border-l border-white/5">
           <div>
-            <p class="text-white font-bold mb-1">1. 🔍 Collecte et Analyse</p>
-            <p>Détection des appels système via <strong>Falco</strong>. Les logs sont transmis par 
-            <strong>Fluent-bit</strong> vers une instance <strong>Elasticsearch</strong>, permettant leur exploitation via <strong>Kibana</strong>.</p>
+            <p class="text-white font-bold mb-1">1. 🔍 Runtime Security & Logs</p>
+            <p>
+              <strong>Falco</strong> détecte les comportements système anormaux. Les événements sont collectés par
+              <strong>Fluent Bit</strong>, centralisés dans <strong>Elasticsearch</strong> et exploitables dans
+              <strong>Kibana</strong>.
+            </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">2. 📡 Système d'alerte</p>
-            <p>Envoi de notifications en temps réel par <strong>Webhooks Cisco Webex</strong> lors de la correspondance 
-            d'un événement système avec une règle définie.</p>
+            <p class="text-white font-bold mb-1">2. 🖥️ Endpoint & Compliance avec Wazuh</p>
+            <p>
+              Une API backend dédiée récupère et normalise l’inventaire des agents Wazuh. Les identifiants,
+              le jeton d’authentification et les éléments cryptographiques restent côté serveur :
+              aucune donnée sensible Wazuh n’est transmise au navigateur.
+            </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">3. 🛡️ Isolation réseau</p>
-            <p>Utilisation des <strong>NetworkPolicies</strong> Kubernetes pour définir les flux autorisés entre les conteneurs et limiter la surface d'exposition.</p>
+            <p class="text-white font-bold mb-1">3. 📡 Alerting opérationnel</p>
+            <p>
+              Les événements correspondant à des règles de sécurité déclenchent des notifications temps réel
+              via <strong>webhooks Cisco Webex</strong>, afin de réduire le délai de détection et de réaction.
+            </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">4. 🔐 Développement et Accès</p>
-            <p>L'interface de contrôle est sécurisée par authentification <strong>JWT</strong> et le déploiement est géré via des outils d'infrastructure as code (IaC).</p>
+            <p class="text-white font-bold mb-1">4. 🕸️ Micro-segmentation réseau</p>
+            <p>
+              Des <strong>NetworkPolicies</strong> Kubernetes limitent les communications aux flux explicitement
+              autorisés entre workloads et réduisent la surface d’exposition du cluster.
+            </p>
+          </div>
+
+          <div>
+            <p class="text-white font-bold mb-1">5. 🔐 Sécurité du déploiement</p>
+            <p>
+              L’accès applicatif repose sur <strong>JWT</strong>. Les communications internes utilisent TLS,
+              les secrets sont gérés dans Kubernetes et l’infrastructure est automatisée avec
+              <strong>Ansible</strong> et des pipelines CI/CD.
+            </p>
           </div>
         </div>
       </section>
     </div>
-    `,
-
-    repo: "https://github.com/KamouloxPelvis/K-Guard",
-    blogUrl: "https://blog.devopsnotes.org/articles/k-guard-orchestration-sre-et-audit-de-scurit-sur-k3s",
-    videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
-    architectureDoc: "/docs/Rapport_Architecture_KGuard.pdf",
-    screenshots: [
-        "/screenshots/kguard-system_overview-1.png", 
-        "/screenshots/kguard-log.png", 
-        "/screenshots/kguard-security.png", 
-        "/screenshots/kguard-network_map-1.png", 
-        "/screenshots/kguard-network_map-2.png", 
-        "/screenshots/kguard-settings.png",
-        "/screenshots/kguard-docs.png",
-        "/screenshots/kguard-webex.png",
-    ] 
+  `,
+  repo: "https://github.com/KamouloxPelvis/K-Guard",
+  blogUrl: "https://blog.devopsnotes.org/articles/k-guard-orchestration-sre-et-audit-de-scurit-sur-k3s",
+  videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
+  architectureDoc: "/docs/Dossier_de_conception_technique_K-Guard.pdf",
+  screenshots: [
+    "/screenshots/kguard-system_overview-1.png",
+    "/screenshots/kguard-log.png",
+    "/screenshots/kguard-security.png",
+    "/screenshots/kguard-network_map-1.png",
+    "/screenshots/kguard-network_map-2.png",
+    "/screenshots/kguard-settings.png",
+    "/screenshots/kguard-docs.png",
+    "/screenshots/kguard-webex.png",
+    "/screenshots/kguard-wazuh-endpoints.png"
+  ]
   },
   {
     id: 'monitoring',

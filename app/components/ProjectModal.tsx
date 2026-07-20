@@ -59,7 +59,8 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
         "Network Sentinel : Topologie des flux réseau du cluster",
         "Paramètres : Alertes Cisco Webex et gestion du cache",
         "Docs et swagger : Documentation technique et API REST",
-        "Notifications sur le chat Webex pour les incidents et alertes de sécurité"
+        "Notifications sur le chat Webex pour les incidents et alertes de sécurité",
+        "Endpoint & Compliance : inventaire Wazuh des agents, statut, OS, IP, groupe et dernière remontée"
       ],
       monitoring: [
         "Dashboard Disponibilité : État du contrôleur Nginx Ingress",
@@ -117,9 +118,9 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                     
                   </div>
                   <p className="mt-3 text-center italic text-brand-flame text-xs leading-relaxed max-w-2xl mx-auto">
-                    Vidéo illustrative : Présentation du concept K-Guard. Note : L&apos;écosystème a été mis à jour vers la v1.4.0 
-                    pour inclure des capacités avancées d&apos;analyse SOC et de micro-segmentation ; référez-vous au TDD pour les spécifications 
-                    techniques à jour.
+                    Démonstration de K-Guard, plateforme DevSecOps auto-hébergée pour K3s.
+                    La release v1.5.0 ajoute l’inventaire Wazuh Endpoint & Compliance en lecture seule,
+                    avec authentification et validation TLS gérées exclusivement côté backend.
                   </p>
                 </div>
               )}
@@ -140,7 +141,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                       <h5 className="text-white font-bold uppercase text-[11px] tracking-widest">Dossier de Conception Technique | Technical Design Document</h5>
                       <p className="text-slate-400 text-[10px] font-sans leading-normal">Détails de l&apos;implémentation SRE, logique de remédiation active et micro-segmentation Sentinel.</p>
                       <a 
-                        href="/docs/Dossier_de_conception_technique_K-Guard.pdf" 
+                        href={project.architectureDoc}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block px-6 py-3 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:opacity-90 transition-all"
