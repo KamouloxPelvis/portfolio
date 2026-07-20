@@ -5,23 +5,6 @@ import Image from 'next/image';
 import DiplomaModal from '../DiplomaModal';
 
 const DIPLOMAS = {
-  cnam: {
-    title: "Master Sécurité informatique, cybersécurité et cybermenaces",
-    school: "Conservatoire national des arts et métiers (Cnam) Bretagne",
-    year: "2026/2028",
-    logo: "/logo_CNAM.png",
-    image: "/cnam_illustration.jpeg",
-    program: [
-      "Lutte contre la criminalité",
-      "Compréhension	de	la	menace",
-      "Architecture et sécurisation des SI",
-      "Gestion des risques, conformité et pilotage de projets de sécurité",
-      "Analyse d'incidents (SOC, SIEM, Forensic)",
-      "Posture défense / attaque (Blue & Red Team)",
-      "Analyse statique de code et rétro-conception"
-    ],
-    details: "Formation à distance effectuée hors temps de travail (cours du soir)."
-  },
   cisco: {
     title: "Formation certifiante Cisco DevNet Associate",
     school: "Cisco Networking Academy",

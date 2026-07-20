@@ -18,7 +18,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
       {/* Ajout du padding-right (pr-32) pour laisser la place au badge */}
       <div className="space-y-4 pr-32"> 
         <div className="inline-block border border-brand-flame-h px-3 py-1 text-[10px] font-mono text-brand-flame-h uppercase tracking-widest">
-            OUVERT A DE NOUVELLES OPPORTUNITÉS EN POSTE OU ALTERNANCE RENTRÉE 2026
+          Ouvert à de nouvelles opportunités poste, missions ou alternances.
         </div>
 
         <div className="flex items-center gap-6">
@@ -40,7 +40,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
                 Administrateur Systèmes et Réseaux
               </p>
               <p className="text-[10px] md:text-[11px] font-mono text-brand-flame-p tracking-widest uppercase italic mt-1">
-                Spécialisation DevOps & Sécurité
+                DevOps · DevSecOps · Sécurité des Infrastructures · SOC
               </p>
             </div>
           </div>
@@ -48,24 +48,33 @@ export default function Profil({ onContactClick }: ProfilProps) {
       </div>
 
       {/* Middle Section */}
-      <div className="max-w-3xl my-auto py-8">
-        <p className="text-lg md:text-3xl font-mono text-brand-gold italic leading-tight mb-4">
-          &apos;Garantir la disponibilité, automatiser l&apos;agilité, durcir la sécurité&apos;
-        </p>
-        <p className="text-[11px] md:text-lg font-mono text-slate-400 border-l-4 border-brand-gold pl-6 italic leading-relaxed text-balance">
-          Administrateur Systèmes & Réseaux, mon cœur de métier repose sur la maîtrise rigoureuse des 
-          <span className="text-brand-skull font-bold"> infrastructures bas-niveau, du MCO et de la résilience réseau </span> 
-          (Titre Pro AIS). Convaincu que la sécurité se construit par la maîtrise technique, j&apos;emploie le 
-          <span className="text-brand-skull font-bold"> DevOps comme vecteur d&apos;automatisation </span> pour industrialiser le déploiement et la surveillance (IaC, Cisco DevNet). 
-          En transition progressive vers la cybersécurité, je conçois des environnements sécurisés par le design, 
-          <span className="text-brand-skull font-bold"> du hardware aux clusters </span>, avec une expertise forte en sécurité opérationnelle et SOC.
-        </p>
-      </div>
+<div className="max-w-3xl mt-12 md:mt-16 py-4">
+  <p className="text-base md:text-2xl font-mono text-brand-gold italic leading-tight mb-5">
+    &apos;Garantir la disponibilité, automatiser l&apos;agilité, durcir la sécurité&apos;
+  </p>
+
+  <p className="text-[10px] md:text-[15px] font-mono text-slate-400 border-l-4 border-brand-gold pl-6 italic leading-relaxed text-balance">
+    Administrateur Systèmes & Réseaux orienté
+    <span className="text-brand-skull font-bold"> DevOps, DevSecOps et sécurité des infrastructures</span>.
+
+    <br /><br />
+
+    Je conçois des environnements
+    <span className="text-brand-skull font-bold"> fiables et sécurisés</span>,
+    de l&apos;administration système et réseau à l&apos;automatisation des déploiements,
+    l&apos;observabilité, la conteneurisation et l&apos;analyse d&apos;événements de sécurité.
+
+    <br /><br />
+
+    Mon approche associe
+    <span className="text-brand-skull font-bold"> MCO, résilience, CI/CD, Infrastructure as Code et pratiques SOC</span>.
+  </p>
+</div>
 
       {/* Bottom Section */}
       <div className="flex flex-wrap gap-4 pt-6 pb-2 mt-auto">
         <a 
-          href="/CV_Admin_Kamal_Guidadou.pdf" 
+          href="/docs/CV_SecInfra_Admin_Automatisation.pdf" 
           download 
           className="flex-1 md:flex-none px-8 py-4 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:brightness-110 transition-all"
         >
