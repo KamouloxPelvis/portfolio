@@ -54,20 +54,13 @@ export default function Profil({ onContactClick }: ProfilProps) {
   </p>
 
   <p className="text-[10px] md:text-[15px] font-mono text-slate-400 border-l-4 border-brand-gold pl-6 italic leading-relaxed text-balance">
-    Administrateur Systèmes & Réseaux orienté
-    <span className="text-brand-skull font-bold"> DevOps, DevSecOps et sécurité des infrastructures</span>.
+    Administrateur Systèmes & Réseaux orienté <span className="text-brand-skull font-bold"> DevOps, DevSecOps et sécurité des infrastructures</span>, je conçois 
+    des environnements <span className="text-brand-skull font-bold"> fiables et sécurisés</span>, de l&apos;administration système et réseau à 
+    l&apos;automatisation des déploiements, l&apos;observabilité, la conteneurisation et l&apos;analyse d&apos;événements de sécurité.
 
     <br /><br />
 
-    Je conçois des environnements
-    <span className="text-brand-skull font-bold"> fiables et sécurisés</span>,
-    de l&apos;administration système et réseau à l&apos;automatisation des déploiements,
-    l&apos;observabilité, la conteneurisation et l&apos;analyse d&apos;événements de sécurité.
-
-    <br /><br />
-
-    Mon approche associe
-    <span className="text-brand-skull font-bold"> MCO, résilience, CI/CD, Infrastructure as Code et pratiques SOC</span>.
+    Mon approche associe <span className="text-brand-skull font-bold"> MCO, résilience, CI/CD, Infrastructure as Code et pratiques SOC</span>.
   </p>
 </div>
 
