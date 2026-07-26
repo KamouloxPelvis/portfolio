@@ -25,30 +25,30 @@ const PROJECTS_DATA = [
   id: 'kguard',
   href: "https://app.devopsnotes.org",
   img: "/screenshots/capture_sec-infra-app.jpg",
-  title: "K-Guard v1.5.0",
+  title: "K-Guard v1.6.0",
   stack: "FastAPI • Python 3.12 • Kubernetes/K3s • Wazuh • Falco • ELK • Docker • Ansible • TLS/PKI • JWT • GitHub Actions",
   shortDesc: "Plateforme DevSecOps pour K3s : sécurité runtime Falco, observabilité centralisée et inventaire Wazuh des endpoints en lecture seule.",
   desc: `
     <div class="space-y-8 text-slate-300 font-sans text-[14px] leading-relaxed">
       <section>
         <h4 class="text-brand-gold font-black text-sm mb-3 border-b border-brand-gold/10 pb-2 uppercase tracking-tighter">
-          🛡️ K-Guard v1.5.0 : observabilité et gouvernance de sécurité pour K3s
+          🛡️ K-Guard v1.6.0 : plateforme de gouvernance sécurité pour K3s
         </h4>
 
         <p class="mb-5">
-          <strong>K-Guard</strong> est une plateforme DevSecOps auto-hébergée, conçue pour superviser et administrer un cluster
-          <strong>Kubernetes K3s</strong>. Elle centralise les signaux de sécurité runtime, les événements d’infrastructure
-          et l’état de conformité des endpoints dans une interface orientée exploitation.
+          <strong>K-Guard</strong> est une plateforme DevSecOps auto-hébergée pensée pour centraliser la
+          visibilité opérationnelle, la sécurité runtime et la gouvernance de sécurité d’un cluster
+          <strong>Kubernetes K3s</strong> dans une interface unique orientée exploitation.
         </p>
 
         <div class="border-l-2 border-brand-gold/40 bg-brand-gold/[0.04] px-4 py-3">
           <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-1">
-            Nouveauté v1.5.0 — Endpoint & Compliance
+            Nouveauté v1.6.0 — Wazuh Security Views & Stabilisation
           </p>
           <p class="text-slate-300">
-            Intégration sécurisée de <strong>Wazuh</strong> pour consulter l’inventaire des agents :
-            statut, hostname, adresse IP, système d’exploitation, architecture, groupe, version et dernière remontée.
-            Cette intégration est strictement <strong>read-only</strong>.
+            La release <strong>1.6.0</strong> enrichit l’intégration <strong>Wazuh</strong> avec de nouvelles vues
+            dédiées à l’inventaire endpoint, à la lecture des alertes sécurité et à la posture de sécurité,
+            tout en conservant une architecture strictement <strong>read-only</strong> côté navigateur.
           </p>
         </div>
       </section>
@@ -60,45 +60,53 @@ const PROJECTS_DATA = [
 
         <div class="space-y-6 pl-4 border-l border-white/5">
           <div>
-            <p class="text-white font-bold mb-1">1. 🔍 Runtime Security & Logs</p>
+            <p class="text-white font-bold mb-1">1. 🔍 System Overview & exploitation K3s</p>
             <p>
-              <strong>Falco</strong> détecte les comportements système anormaux. Les événements sont collectés par
-              <strong>Fluent Bit</strong>, centralisés dans <strong>Elasticsearch</strong> et exploitables dans
-              <strong>Kibana</strong>.
+              La vue d’ensemble du cluster expose les workloads, métriques CPU/RAM, états runtime,
+              IPs de pods et outils de diagnostic pour accélérer l’analyse et la remédiation.
             </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">2. 🖥️ Endpoint & Compliance avec Wazuh</p>
+            <p class="text-white font-bold mb-1">2. 🛡️ Runtime Security & Observability</p>
             <p>
-              Une API backend dédiée récupère et normalise l’inventaire des agents Wazuh. Les identifiants,
-              le jeton d’authentification et les éléments cryptographiques restent côté serveur :
-              aucune donnée sensible Wazuh n’est transmise au navigateur.
+              <strong>Falco</strong> détecte les comportements anormaux, <strong>Fluent Bit</strong> collecte les événements,
+              puis <strong>Elasticsearch</strong> et <strong>Kibana</strong> permettent l’investigation et la corrélation
+              des alertes en contexte.
             </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">3. 📡 Alerting opérationnel</p>
+            <p class="text-white font-bold mb-1">3. 🖥️ Endpoint, Alerts & Compliance avec Wazuh</p>
             <p>
-              Les événements correspondant à des règles de sécurité déclenchent des notifications temps réel
-              via <strong>webhooks Cisco Webex</strong>, afin de réduire le délai de détection et de réaction.
+              Une couche backend dédiée interroge l’API Wazuh pour exposer dans K-Guard
+              l’inventaire des agents, les alertes de sécurité, les métadonnées système et
+              la visibilité de posture, sans jamais exposer les credentials ni les jetons Wazuh au frontend.
             </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">4. 🕸️ Micro-segmentation réseau</p>
+            <p class="text-white font-bold mb-1">4. 📡 Alerting opérationnel & ChatOps</p>
             <p>
-              Des <strong>NetworkPolicies</strong> Kubernetes limitent les communications aux flux explicitement
-              autorisés entre workloads et réduisent la surface d’exposition du cluster.
+              Les événements critiques peuvent être relayés vers <strong>Cisco Webex</strong> pour accélérer
+              la détection, la notification et la coordination opérationnelle en contexte DevSecOps.
             </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">5. 🔐 Sécurité du déploiement</p>
+            <p class="text-white font-bold mb-1">5. 🕸️ Network Sentinel & micro-segmentation</p>
             <p>
-              L’accès applicatif repose sur <strong>JWT</strong>. Les communications internes utilisent TLS,
-              les secrets sont gérés dans Kubernetes et l’infrastructure est automatisée avec
-              <strong>Ansible</strong> et des pipelines CI/CD.
+              Le module <strong>Sentinel</strong> visualise la topologie réseau, les flux entre pods et
+              prépare l’application de <strong>NetworkPolicies</strong> dans une logique Zero-Trust.
+            </p>
+          </div>
+
+          <div>
+            <p class="text-white font-bold mb-1">6. 🔐 Déploiement sécurisé & automatisation</p>
+            <p>
+              L’application s’appuie sur <strong>JWT</strong>, le chiffrement <strong>TLS</strong>,
+              des <strong>Secrets Kubernetes</strong>, l’automatisation <strong>Ansible</strong> et des pipelines
+              CI/CD pour industrialiser les déploiements et les montées de version.
             </p>
           </div>
         </div>
@@ -111,14 +119,18 @@ const PROJECTS_DATA = [
   architectureDoc: "/docs/Dossier_de_conception_technique_K-Guard.pdf",
   screenshots: [
     "/screenshots/kguard-system_overview-1.png",
-    "/screenshots/kguard-log.png",
+    "/screenshots/kguard-system_overview-2.png",
     "/screenshots/kguard-security.png",
     "/screenshots/kguard-network_map-1.png",
     "/screenshots/kguard-network_map-2.png",
     "/screenshots/kguard-settings.png",
     "/screenshots/kguard-docs.png",
+    "/screenshots/kguard-wazuh-endpoints-1.png",
+    "/screenshots/kguard-wazuh-endpoints-2.png",
+    "/screenshots/kguard-wazuh-security-posture.png",
+    "/screenshots/kguard-wazuh-alerts-1.png",
+    "/screenshots/kguard-wazuh-alerts-2.png",
     "/screenshots/kguard-webex.png",
-    "/screenshots/kguard-wazuh-endpoints.png"
   ]
   },
   {

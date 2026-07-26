@@ -59,8 +59,12 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
         "Network Sentinel : Topologie des flux réseau du cluster",
         "Paramètres : Alertes Cisco Webex et gestion du cache",
         "Docs et swagger : Documentation technique et API REST",
+        "Endpoint & Compliance : inventaire Wazuh des agents, statut, OS, IP, groupe et dernière remontée",
+        "Endpoint & Compliance : détails et adresse de l'agent Wazuh Manager",
+        "Endpoint & Compliance : Posture de sécurité et conformité des agents Wazuh",
+        "Alertes Wazuh",
+        "Alertes Wazuh: Détails",
         "Notifications sur le chat Webex pour les incidents et alertes de sécurité",
-        "Endpoint & Compliance : inventaire Wazuh des agents, statut, OS, IP, groupe et dernière remontée"
       ],
       monitoring: [
         "Dashboard Disponibilité : État du contrôleur Nginx Ingress",
