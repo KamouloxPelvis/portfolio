@@ -132,6 +132,108 @@ const PROJECTS_DATA = [
     "/screenshots/kguard-wazuh-alerts-2.png",
     "/screenshots/kguard-webex.png",
   ]
+},
+  {
+    id: 'kguard-ai',
+    href: "https://github.com/KamouloxPelvis/K-Guard-AI",
+    img: "/screenshots/k-guard-ai-illustration.png",
+    title: "K-Guard AI v0.6.0",
+    stack: "Java 21 • Spring Boot 3.5 • Docker • GHCR • VPS • Actuator • Ollama • Elasticsearch • Kubernetes • LLMOps",
+    shortDesc: "Microservice Java d’analyse et d’enrichissement d’alertes sécurité IA avec triage déterministe et préparation LLM locale via Ollama.",
+    desc: `
+      <div class="space-y-8 text-slate-300 font-sans text-[14px] leading-relaxed">
+        <section>
+          <h4 class="text-brand-gold font-black text-sm mb-3 border-b border-brand-gold/10 pb-2 uppercase tracking-tighter">
+            🤖 K-Guard AI v0.6.0 : microservice d’analyse sécurité orienté LLMOps
+          </h4>
+
+          <p class="mb-5">
+            <strong>K-Guard AI</strong> est un microservice <strong>Java 21 / Spring Boot</strong> conçu pour transformer
+            des alertes brutes ou normalisées en une analyse exploitable par un analyste SOC, une plateforme
+            DevSecOps ou une interface comme <strong>K-Guard</strong>.
+          </p>
+
+          <div class="border-l-2 border-brand-gold/40 bg-brand-gold/[0.04] px-4 py-3">
+            <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-1">
+              Focus portfolio — DevSecOps + LLMOps
+            </p>
+            <p class="text-slate-300">
+              Ce projet met en avant mes compétences en <strong>industrialisation d’un service IA</strong> :
+              packaging Docker, déploiement VPS, configuration par environnement, healthchecks,
+              API d’ingestion normalisée, enrichissement déterministe et préparation d’un chemin
+              d’enrichissement local par <strong>LLM via Ollama</strong>.
+            </p>
+          </div>
+        </section>
+
+        <section class="space-y-6">
+          <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px] flex items-center gap-2">
+            ⚙️ Capacités techniques
+          </h4>
+
+          <div class="space-y-6 pl-4 border-l border-white/5">
+            <div>
+              <p class="text-white font-bold mb-1">1. 🧠 Analyse déterministe d’alertes</p>
+              <p>
+                Le service reçoit une alerte sécurité, la valide, la nettoie, estime le niveau de risque,
+                calcule un score de confiance et génère un résumé humain avec des actions recommandées.
+              </p>
+            </div>
+
+            <div>
+              <p class="text-white font-bold mb-1">2. 🔌 Ingestion normalisée pour intégration backend</p>
+              <p>
+                Une API dédiée permet d’ingérer des événements structurés depuis K-Guard ou une source tierce,
+                afin de préparer une intégration propre entre détection, analyse et restitution applicative.
+              </p>
+            </div>
+
+            <div>
+              <p class="text-white font-bold mb-1">3. 🤖 Préparation LLM locale et gouvernance des flux IA</p>
+              <p>
+                L’architecture supporte un enrichissement optionnel via <strong>Ollama</strong>, avec routage par provider,
+                isolation des paramètres, maîtrise du flux de données et conservation d’un mode purement
+                déterministe lorsque l’IA est désactivée.
+              </p>
+            </div>
+
+            <div>
+              <p class="text-white font-bold mb-1">4. 📦 Déploiement conteneurisé et exploitation VPS</p>
+              <p>
+              L’application est packagée en image Docker, publiée sur <strong>GHCR</strong>, relancée via script
+              avec <strong>env-file</strong>, et supervisée via les endpoints <strong>Spring Boot Actuator</strong>
+              (health, liveness, readiness).
+            </p>
+            </div>
+
+            <div>
+              <p class="text-white font-bold mb-1">5. 📚 Conception orientée plateforme</p>
+              <p>
+                Le service est pensé comme une brique réutilisable entre les moteurs de détection
+                (<strong>Falco</strong>, <strong>Wazuh</strong>, événements applicatifs) et les couches de visualisation,
+                d’investigation ou de corrélation.
+              </p>
+            </div>
+
+            <div>
+              <p class="text-white font-bold mb-1">6. 🛡️ Pratiques LLMOps mises en avant</p>
+              <p>
+                Ce projet illustre la séparation entre logique métier et enrichissement IA, la configuration
+                contrôlée par environnement, la possibilité de désactiver l’IA en production de test,
+                ainsi que la préparation d’un enrichissement local sans dépendance à un SaaS externe.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    `,
+    repo: "https://github.com/KamouloxPelvis/K-Guard-AI",
+    screenshots: [
+      "/screenshots/k-guard-ai-illustration.png",
+      "/screenshots/k-guard-ai-illustration.png",
+      "/screenshots/k-guard-ai-illustration.png",
+      "/screenshots/k-guard-ai-illustration.png",
+    ]
   },
   {
     id: 'monitoring',
@@ -182,7 +284,7 @@ const PROJECTS_DATA = [
                   "/screenshots/blog-capture-5.png", 
                   "/screenshots/blog-capture-6.png",
     ]
-  }
+  },
 ];
 
 export default function Projects() {
@@ -231,13 +333,8 @@ export default function Projects() {
             </div>
           </button>
         ))}
-
-        {/* Le placeholder apparaît maintenant pour compléter la grille 2x2 */}
-        <div className="border border-white/5 bg-white/[0.02] min-h-[380px] flex flex-col items-center justify-center p-8 text-center">
-          <span className="text-white/20 font-sans text-[10px] uppercase tracking-[0.3em] mb-2">Prochain Projet</span>
-          <span className="text-brand-gold/40 text-[10px] font-mono">En cours, application JAVA...</span>
-        </div>
       </div>
+
 
       <AnimatePresence>
         {selectedProject && (

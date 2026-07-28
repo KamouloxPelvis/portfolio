@@ -65,7 +65,7 @@ export default function Expertise() {
             <span className="text-white/50 ml-2">Administration Système:</span> Linux (Debian), Windows Server (DNS, DHCP, AD, GPO, WSUS), Virtualisation (vSphere) •
             <span className="text-white/50 ml-2">Orchestration & Conteneurs:</span> Kubernetes (K8s, K3s), Docker Compose, Docker, Helm •
             <span className="text-white/50 ml-2">Réseau & Cloud:</span>Cloudflare, Google APIs, Reverse Proxy (Nginx, Traefik), DNS & Load Balancing •
-            <span className="text-white/50 ml-2">Stockage:</span> MinIO, S3 Storage, NFS, SMB
+            <span className="text-white/50 ml-2">Stockage:</span> MinIO, S3 Storage
           </p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
@@ -81,13 +81,15 @@ export default function Expertise() {
           <p className="text-[11px] text-slate-300 font-mono mt-2">
             <span className="text-white/50 ml-2">CI/CD & IaC:</span>GitLab CI/CD, Github Actions, API REST, Ansible, Terraform •
             <span className="text-white/50 ml-2">Langages:</span>Python, Bash, Typescript •
-            <span className="text-white/50 ml-2">Qualité & Sécurité du Code:</span> Sentry, Bandit, codeQL, Dependabot</p>
+            <span className="text-white/50 ml-2">Qualité & Sécurité du Code:</span> Sentry, Bandit, codeQL, Dependabot
+            <span className="text-white/50 ml-2">LLM:</span> Intégration locale via Ollama
+          </p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-blue-400">
           <div className="text-blue-400 font-bold text-xs uppercase tracking-wider">Données & Observabilité</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
             <span className="text-white/50 ml-2">Base de Données:</span> SQL Server, SQLite, MongoDB •
-            <span className="text-white/50 ml-2">Observabilité:</span> Prometheus (PromQL), Grafana, Loki, ELK (ElasticSearch, Logstash, Kibana) •
+            <span className="text-white/50 ml-2">Observabilité:</span> Prometheus (PromQL), Grafana, ELK (ElasticSearch, Logstash, Kibana) •
             <span className="text-white/50 ml-2">Supervision:</span> Zabbix
             
           </p>
