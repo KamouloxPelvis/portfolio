@@ -140,9 +140,8 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                     
                   </div>
                   <p className="mt-3 text-center italic text-brand-flame text-xs leading-relaxed max-w-2xl mx-auto">
-                    Démonstration de K-Guard, plateforme DevSecOps auto-hébergée pour K3s.
-                    La release v1.5.0 ajoute l’inventaire Wazuh Endpoint & Compliance en lecture seule,
-                    avec authentification et validation TLS gérées exclusivement côté backend.
+                    Cette démonstration ne prend pas en compte les mises à jour récentes versionnées dans le repo 
+                    github et les fonctionnalitées présentées sur cette page.
                   </p>
                 </div>
               )}

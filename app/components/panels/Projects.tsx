@@ -25,7 +25,7 @@ const PROJECTS_DATA = [
   id: 'kguard',
   href: "https://app.devopsnotes.org",
   img: "/screenshots/capture_sec-infra-app.jpg",
-  title: "K-Guard v1.6.0",
+  title: "K-Guard v1.7.0",
   stack: "FastAPI • Python 3.12 • Kubernetes/K3s • Wazuh • Falco • ELK • Docker • Ansible • TLS/PKI • JWT • GitHub Actions",
   shortDesc: "Plateforme DevSecOps pour K3s : sécurité runtime Falco, observabilité centralisée et inventaire Wazuh des endpoints en lecture seule.",
   desc: `
