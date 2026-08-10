@@ -29,7 +29,7 @@ export default function Home() {
       `}</style>
 
       {/* Main container: Fixed height based on viewport to maintain a desktop-app feel */}
-      <main className="flex flex-col md:flex-row h-[calc(100vh-55px)] md:h-[calc(100vh-50px)] min-h-[500px] w-full max-w-7xl border border-brand-gold/20 bg-black overflow-hidden shadow-2xl relative">
+      <main className="flex flex-col md:flex-row h-[calc(100vh-55px)] md:h-[calc(100vh-50px)] min-h-125 w-full max-w-7xl border border-brand-gold/20 bg-black overflow-hidden shadow-2xl relative">
         
         {panels.map((panel) => (
           <motion.section

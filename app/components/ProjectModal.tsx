@@ -52,19 +52,31 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
   const getCaption = (index: number) => {
     const captions: Record<string, string[]> = {
       kguard: [
-        "Vue d'ensemble des pods avec métriques, logs et remédiation rapide",
-        "Console de logs temps réel du cluster",
-        "Runtime Security & Observability : Détection d'anomalies et alertes",
-        "Network Sentinel : Liste des pods autorisés et adressage",
-        "Network Sentinel : Topologie des flux réseau du cluster",
-        "Paramètres : Alertes Cisco Webex et gestion du cache",
-        "Docs et swagger : Documentation technique et API REST",
+        "Vue d'ensemble des workloads avec métriques CPU/RAM, adresses IP, état et accès aux logs",
+        "Console de logs d'un pod Kubernetes pour l'analyse et le diagnostic en temps réel",
+
+        "Runtime Security & Observability : tableau de bord des événements Falco et analyse enrichie par K-Guard AI",
+        "Runtime Security & Observability : flux temps réel des événements de sécurité détectés par Falco",
+
+        "Network Sentinel : inventaire des pods du cluster et état de leur protection réseau",
+        "Network Sentinel : inspection détaillée d'un pod, de son namespace, de son IP et de son état de protection",
+        "Network Sentinel : visualisation topologique des flux réseau entre les workloads",
+        "Network Sentinel : exploration de la topologie réseau et des communications inter-pods",
+        "Network Sentinel : plan de déploiement des NetworkPolicies avec sélection des groupes de règles",
+        "Network Sentinel : analyse de la posture de sécurité Kubernetes et identification des écarts de configuration",
+        "Network Sentinel : recommandations de sécurité issues de l'audit de posture Kubernetes",
+
+        "Paramètres : intégrations Cisco Webex, stockage et maintenance de l'infrastructure",
+        "Documentation technique : documentation interactive de l'API REST K-Guard avec Swagger",
+
         "Endpoint & Compliance : inventaire Wazuh des agents, statut, OS, IP, groupe et dernière remontée",
-        "Endpoint & Compliance : détails et adresse de l'agent Wazuh Manager",
-        "Endpoint & Compliance : Posture de sécurité et conformité des agents Wazuh",
-        "Alertes Wazuh",
-        "Alertes Wazuh: Détails",
-        "Notifications sur le chat Webex pour les incidents et alertes de sécurité",
+        "Endpoint & Compliance : détails d'un agent Wazuh et informations d'identification de l'endpoint",
+        "Endpoint & Compliance : posture de sécurité et conformité des endpoints supervisés par Wazuh",
+        "Endpoint & Compliance : file d'alertes Wazuh avec niveaux de sévérité, endpoints et contexte MITRE ATT&CK",
+        "Endpoint & Compliance : analyse détaillée d'une alerte Wazuh avec preuves, événements et contexte MITRE ATT&CK",
+
+        "Network Sentinel : recommandations de sécurité issues de l'audit de posture Kubernetes",
+        "Notifications Cisco Webex : remontée des incidents et alertes de sécurité détectés par K-Guard"
       ],
       monitoring: [
         "Dashboard Disponibilité : État du contrôleur Nginx Ingress",
@@ -91,7 +103,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md" onClick={onClose}>
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md" onClick={onClose}>
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
         onClick={(e) => e.stopPropagation()}
@@ -140,7 +152,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                   dangerouslySetInnerHTML={{ __html: project.desc }} 
               />
               {project.id === 'kguard-ai' && (
-              <div className="space-y-4 p-5 border border-brand-gold/20 bg-brand-gold/[0.03]">
+              <div className="space-y-4 p-5 border border-brand-gold/20 bg-brand-gold/3">
                 <h4 className="text-brand-gold font-mono text-[10px] uppercase tracking-[0.3em]">
                   Compétences démontrées
                 </h4>
@@ -179,8 +191,8 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
               {/* Zone d'Actions */}
               <div className="space-y-6">
                 {project.architectureDoc && (
-                  <div className="p-6 border border-white/5 bg-white/[0.03] rounded-sm flex flex-col md:flex-row items-center gap-6 group hover:border-brand-flame-h/20 transition-colors">
-                    <div className="w-24 aspect-[3/4] relative border border-white/10 shrink-0 shadow-lg">
+                  <div className="p-6 border border-white/5 bg-white/3 rounded-sm flex flex-col md:flex-row items-center gap-6 group hover:border-brand-flame-h/20 transition-colors">
+                    <div className="w-24 aspect-3/4 relative border border-white/10 shrink-0 shadow-lg">
                       <Image src="/docs/thumbnail_k-guard.png" fill className="object-cover opacity-60 group-hover:opacity-100 transition-opacity" alt="Architecture Report Thumbnail" />
                     </div>
                     <div className="space-y-3 flex-1">
@@ -255,9 +267,9 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
           <motion.div 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setZoomedMedia(null)}
-            className="fixed inset-0 z-[110] flex items-center justify-center bg-black/98 backdrop-blur-xl p-4 md:p-12 cursor-zoom-out"
+            className="fixed inset-0 z-110 flex items-center justify-center bg-black/98 backdrop-blur-xl p-4 md:p-12 cursor-zoom-out"
           >
-            <button onClick={showPrev} className="absolute left-4 md:left-10 z-[120] p-4 text-white/20 hover:text-brand-gold transition-all group hidden md:block">
+            <button onClick={showPrev} className="absolute left-4 md:left-10 z-120 p-4 text-white/20 hover:text-brand-gold transition-all group hidden md:block">
               <span className="text-6xl font-thin group-hover:-translate-x-2 block transition-transform">‹</span>
             </button>
             <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }}
@@ -278,7 +290,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                 </p>
               </div>
             </motion.div>
-            <button onClick={showNext} className="absolute right-4 md:right-10 z-[120] p-4 text-white/20 hover:text-brand-gold transition-all group hidden md:block">
+            <button onClick={showNext} className="absolute right-4 md:right-10 z-120 p-4 text-white/20 hover:text-brand-gold transition-all group hidden md:block">
               <span className="text-6xl font-thin group-hover:translate-x-2 block transition-transform">›</span>
             </button>
           </motion.div>

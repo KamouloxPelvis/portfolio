@@ -29,90 +29,113 @@ const PROJECTS_DATA = [
   stack: "FastAPI • Python 3.12 • Kubernetes/K3s • Wazuh • Falco • ELK • Docker • Ansible • TLS/PKI • JWT • GitHub Actions",
   shortDesc: "Plateforme DevSecOps pour K3s : sécurité runtime Falco, observabilité centralisée et inventaire Wazuh des endpoints en lecture seule.",
   desc: `
-    <div class="space-y-8 text-slate-300 font-sans text-[14px] leading-relaxed">
-      <section>
-        <h4 class="text-brand-gold font-black text-sm mb-3 border-b border-brand-gold/10 pb-2 uppercase tracking-tighter">
-          🛡️ K-Guard v1.6.0 : plateforme de gouvernance sécurité pour K3s
-        </h4>
 
+    <section class="space-y-6">
+
+      <div>
         <p class="mb-5">
-          <strong>K-Guard</strong> est une plateforme DevSecOps auto-hébergée pensée pour centraliser la
-          visibilité opérationnelle, la sécurité runtime et la gouvernance de sécurité d’un cluster
+          <strong>K-Guard</strong> est une plateforme DevSecOps auto-hébergée conçue pour centraliser
+          la supervision, la sécurité runtime et la gouvernance réseau d’un cluster
           <strong>Kubernetes K3s</strong> dans une interface unique orientée exploitation.
         </p>
 
-        <div class="border-l-2 border-brand-gold/40 bg-brand-gold/[0.04] px-4 py-3">
+        <div class="border-l-2 border-brand-gold/40 bg-brand-gold/4 px-4 py-3">
           <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-1">
-            Nouveauté v1.6.0 — Wazuh Security Views & Stabilisation
+            v1.7.0 — Network Sentinel & gouvernance des NetworkPolicies
           </p>
           <p class="text-slate-300">
-            La release <strong>1.6.0</strong> enrichit l’intégration <strong>Wazuh</strong> avec de nouvelles vues
-            dédiées à l’inventaire endpoint, à la lecture des alertes sécurité et à la posture de sécurité,
-            tout en conservant une architecture strictement <strong>read-only</strong> côté navigateur.
+            La version <strong>1.7.0</strong> renforce le module <strong>Network Sentinel</strong>
+            avec un audit de posture de sécurité, des recommandations et une gestion groupée des
+            <strong>NetworkPolicies</strong>, avec ciblage par namespace et confirmation explicite
+            avant toute modification du cluster.
           </p>
         </div>
-      </section>
+      </div>
 
-      <section class="space-y-6">
+      <div class="space-y-6">
         <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px] flex items-center gap-2">
           ⚙️ Capacités techniques
         </h4>
 
         <div class="space-y-6 pl-4 border-l border-white/5">
+
           <div>
             <p class="text-white font-bold mb-1">1. 🔍 System Overview & exploitation K3s</p>
             <p>
-              La vue d’ensemble du cluster expose les workloads, métriques CPU/RAM, états runtime,
-              IPs de pods et outils de diagnostic pour accélérer l’analyse et la remédiation.
+              La vue d’ensemble permet de suivre les workloads du cluster, leur consommation
+              CPU/RAM, leur état runtime et leurs adresses réseau, avec accès aux logs et aux
+              informations de diagnostic pour faciliter l’exploitation quotidienne.
             </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">2. 🛡️ Runtime Security & Observability</p>
+            <p class="text-white font-bold mb-1">2. 🛡️ Runtime Security & K-Guard AI</p>
             <p>
-              <strong>Falco</strong> détecte les comportements anormaux, <strong>Fluent Bit</strong> collecte les événements,
-              puis <strong>Elasticsearch</strong> et <strong>Kibana</strong> permettent l’investigation et la corrélation
-              des alertes en contexte.
+              <strong>Falco</strong> détecte les comportements suspects au niveau runtime.
+              Les événements sont transmis via <strong>Fluent Bit</strong>, puis enrichis et
+              analysés par <strong>K-Guard AI</strong> avant d’être présentés dans l’interface
+              Security Runtime de K-Guard.
             </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">3. 🖥️ Endpoint, Alerts & Compliance avec Wazuh</p>
+            <p class="text-white font-bold mb-1">3. 🖥️ Endpoint & Compliance avec Wazuh</p>
             <p>
-              Une couche backend dédiée interroge l’API Wazuh pour exposer dans K-Guard
-              l’inventaire des agents, les alertes de sécurité, les métadonnées système et
-              la visibilité de posture, sans jamais exposer les credentials ni les jetons Wazuh au frontend.
+              L’intégration <strong>Wazuh</strong> fournit une visibilité centralisée sur les
+              endpoints supervisés : inventaire des agents, informations système, posture de
+              sécurité et alertes. L’intégration reste volontairement
+              <strong>read-only</strong> et les credentials ainsi que les jetons Wazuh restent
+              confinés au backend.
             </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">4. 📡 Alerting opérationnel & ChatOps</p>
+            <p class="text-white font-bold mb-1">4. 🕸️ Network Sentinel & micro-segmentation</p>
             <p>
-              Les événements critiques peuvent être relayés vers <strong>Cisco Webex</strong> pour accélérer
-              la détection, la notification et la coordination opérationnelle en contexte DevSecOps.
+              <strong>Network Sentinel</strong> analyse la posture réseau du cluster, visualise
+              les relations entre workloads et propose des recommandations pour renforcer leur
+              isolation. Les <strong>NetworkPolicies</strong> peuvent être organisées par groupes
+              et ciblées sur des namespaces sélectionnés afin de faciliter une mise en œuvre
+              progressive de la segmentation réseau.
             </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">5. 🕸️ Network Sentinel & micro-segmentation</p>
+            <p class="text-white font-bold mb-1">5. 🔐 Gouvernance & opérations contrôlées</p>
             <p>
-              Le module <strong>Sentinel</strong> visualise la topologie réseau, les flux entre pods et
-              prépare l’application de <strong>NetworkPolicies</strong> dans une logique Zero-Trust.
+              Les opérations de durcissement et de retrait des politiques reposent sur une
+              sélection explicite des groupes et des namespaces, avec confirmation avant
+              application. Les politiques gérées par Sentinel sont identifiées afin de limiter
+              les risques de modifications involontaires du cluster.
             </p>
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">6. 🔐 Déploiement sécurisé & automatisation</p>
+            <p class="text-white font-bold mb-1">6. 📡 Alerting opérationnel & ChatOps</p>
             <p>
-              L’application s’appuie sur <strong>JWT</strong>, le chiffrement <strong>TLS</strong>,
-              des <strong>Secrets Kubernetes</strong>, l’automatisation <strong>Ansible</strong> et des pipelines
-              CI/CD pour industrialiser les déploiements et les montées de version.
+              K-Guard peut transmettre les événements et notifications opérationnelles vers
+              <strong>Cisco Webex</strong>, afin de faciliter le suivi des incidents et la
+              coordination des opérations de sécurité.
             </p>
           </div>
+
+          <div>
+            <p class="text-white font-bold mb-1">7. 🔧 Sécurité, automatisation & API</p>
+            <p>
+              L’application s’appuie notamment sur <strong>HTTPS/TLS</strong>, JWT,
+              des <strong>Secrets Kubernetes</strong>, un backend FastAPI et des playbooks
+              <strong>Ansible</strong> pour certaines opérations d’infrastructure et de
+              NetworkPolicy. Une documentation interactive <strong>Swagger/OpenAPI</strong>
+              permet également d'explorer les API protégées de K-Guard.
+            </p>
+          </div>
+
         </div>
-      </section>
-    </div>
-  `,
+      </div>
+
+    </section>
+
+    `,
   repo: "https://github.com/KamouloxPelvis/K-Guard",
   blogUrl: "https://blog.devopsnotes.org/articles/k-guard-orchestration-sre-et-audit-de-scurit-sur-k3s",
   videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
@@ -120,9 +143,15 @@ const PROJECTS_DATA = [
   screenshots: [
     "/screenshots/kguard-system_overview-1.png",
     "/screenshots/kguard-system_overview-2.png",
-    "/screenshots/kguard-security.png",
-    "/screenshots/kguard-network_map-1.png",
-    "/screenshots/kguard-network_map-2.png",
+    "/screenshots/kguard-security-1.png",
+    "/screenshots/kguard-security-2.png",
+    "/screenshots/kguard-sentinel_map-1.png",
+    "/screenshots/kguard-sentinel_map-2.png",
+    "/screenshots/kguard-sentinel_map-3.png",
+    "/screenshots/kguard-sentinel_map-4.png",
+    "/screenshots/kguard-sentinel_policies.png",
+    "/screenshots/kguard-sentinel_security-posture.png",
+    "/screenshots/kguard-sentinel_security-recommendations.png",
     "/screenshots/kguard-settings.png",
     "/screenshots/kguard-docs.png",
     "/screenshots/kguard-wazuh-endpoints-1.png",
@@ -153,7 +182,7 @@ const PROJECTS_DATA = [
             DevSecOps ou une interface comme <strong>K-Guard</strong>.
           </p>
 
-          <div class="border-l-2 border-brand-gold/40 bg-brand-gold/[0.04] px-4 py-3">
+          <div class="border-l-2 border-brand-gold/40 bg-brand-gold/4 px-4 py-3">
             <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-1">
               Focus portfolio — DevSecOps + LLMOps
             </p>
@@ -306,7 +335,7 @@ export default function Projects() {
           <button 
             key={proj.id} 
             onClick={() => setSelectedProject(proj)}
-            className="text-left group flex flex-col h-full min-h-[380px] border border-brand-gold/30 bg-black transition-all hover:border-brand-gold/60"
+            className="text-left group flex flex-col h-full min-h-95 border border-brand-gold/30 bg-black transition-all hover:border-brand-gold/60"
           >
             <div className="relative aspect-video w-full overflow-hidden bg-zinc-900 shrink-0">
               <Image 

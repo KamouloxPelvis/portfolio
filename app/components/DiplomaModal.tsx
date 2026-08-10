@@ -20,7 +20,7 @@ export default function DiplomaModal({ isOpen, onClose, data }: DiplomaModalProp
   if (!isOpen || !data) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
       <motion.div 
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -47,7 +47,7 @@ export default function DiplomaModal({ isOpen, onClose, data }: DiplomaModalProp
           {/* Image de profil/école style Cyber */}
           <div className="relative aspect-square border border-white/10">
             <Image src={data.image} alt="Diplôme" fill className="object-cover opacity-80" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#11091d] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-[#11091d] via-transparent to-transparent" />
           </div>
 
           {/* Contenu du programme */}

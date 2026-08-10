@@ -114,7 +114,7 @@ export default function Expertise() {
                 onClick={() => setSelectedDiploma(key)}
                 className="flex items-center gap-4 p-3 border transition-all text-left w-full cursor-pointer group relative overflow-hidden bg-black/40 border-white/5 hover:border-brand-gold/50"
                 >
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
+                <div className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
 
                 <div className="relative w-10 h-10 shrink-0 overflow-hidden border border-white/10 bg-white">
                     <Image 

@@ -84,12 +84,12 @@ export default function Monitoring() {
           </div>
 
           {/* Grafana Iframe Area */}
-          <div className="lg:col-span-2 w-full aspect-video lg:aspect-auto lg:h-[450px] relative bg-black border border-white/10 overflow-hidden group shadow-2xl">
+          <div className="lg:col-span-2 w-full aspect-video lg:aspect-auto lg:h-112.5 relative bg-black border border-white/10 overflow-hidden group shadow-2xl">
             <div className="absolute top-0 left-0 w-full h-1 bg-brand-flame-p opacity-50 group-hover:opacity-100 transition-opacity z-20" />
             
             <iframe
               src="https://monitoring.devopsnotes.org/d-solo/adhcf46/30d8745?orgId=1&from=now-1h&to=now&theme=dark&panelId=panel-1&kiosk=tv&refresh=1m"
-              className="w-full h-full grayscale-[30%] group-hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full grayscale-30 group-hover:grayscale-0 transition-all duration-700"
               title="Grafana Live Monitoring"
             />
 
