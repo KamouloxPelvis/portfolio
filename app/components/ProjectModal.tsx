@@ -150,42 +150,6 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
               <div className="text-sm font-sans leading-relaxed text-slate-300 prose prose-invert max-w-none"
                   dangerouslySetInnerHTML={{ __html: project.desc }} 
               />
-              {project.id === 'kguard-ai' && (
-              <div className="space-y-4 p-5 border border-brand-gold/20 bg-brand-gold/3">
-                <h4 className="text-brand-gold font-mono text-[10px] uppercase tracking-[0.3em]">
-                  Compétences démontrées
-                </h4>
-
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    'Java 21',
-                    'Spring Boot',
-                    'Docker',
-                    'GHCR',
-                    'VPS Deploy',
-                    'Actuator',
-                    'API REST',
-                    'Normalized Ingestion',
-                    'Ollama',
-                    'LLMOps',
-                    'DevSecOps'
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-2 border border-white/10 bg-black/30 text-[10px] uppercase tracking-widest text-slate-300"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-
-                <p className="text-slate-400 text-xs leading-relaxed">
-                  Ce projet met en avant la conception d’un microservice d’analyse sécurité déployé sur VPS,
-                  avec packaging Docker, healthchecks Spring Boot, ingestion normalisée et préparation d’un
-                  enrichissement LLM local maîtrisé.
-                </p>
-              </div>
-            )}
               
               {/* Zone d'Actions */}
               <div className="space-y-6">

@@ -181,18 +181,6 @@ const PROJECTS_DATA = [
             des alertes brutes ou normalisées en une analyse exploitable par un analyste SOC, une plateforme
             DevSecOps ou une interface comme <strong>K-Guard</strong>.
           </p>
-
-          <div class="border-l-2 border-brand-gold/40 bg-brand-gold/4 px-4 py-3">
-            <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-1">
-              Focus portfolio — DevSecOps + LLMOps
-            </p>
-            <p class="text-slate-300">
-              Ce projet met en avant mes compétences en <strong>industrialisation d’un service IA</strong> :
-              packaging Docker, déploiement VPS, configuration par environnement, healthchecks,
-              API d’ingestion normalisée, enrichissement déterministe et préparation d’un chemin
-              d’enrichissement local par <strong>LLM via Ollama</strong>.
-            </p>
-          </div>
         </section>
 
         <section class="space-y-6">
