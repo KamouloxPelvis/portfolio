@@ -55,7 +55,7 @@ export default function RootLayout({
         <footer className="w-full pb-8 pt-2">
           {/* On utilise max-w-7xl et px-4 md:px-10 pour matcher avec ton composant Home */}
           <div className="max-w-7xl mx-auto px-4 md:px-2 flex justify-center md:justify-end">
-            <p className="text-center text-[8px] md:text-xs text-gray-500 opacity-60 font-light tracking-[0.1em] uppercase transition-all duration-300">
+            <p className="text-center text-[8px] md:text-xs text-gray-500 opacity-60 font-light tracking-widest uppercase transition-all duration-300">
               © {new Date().getFullYear()} Kamal Guidadou — devopsnotes.org • Tous droits réservés
             </p>
           </div>

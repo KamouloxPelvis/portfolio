@@ -139,7 +139,7 @@ const PROJECTS_DATA = [
   repo: "https://github.com/KamouloxPelvis/K-Guard",
   blogUrl: "https://blog.devopsnotes.org/articles/k-guard-orchestration-sre-et-audit-de-scurit-sur-k3s",
   videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
-  architectureDoc: "/docs/Dossier_de_conception_technique_K-Guard.pdf",
+  architectureDoc: "/docs/Dossier_de_conception_technique_K-Guard_v1.7.0.pdf",
   screenshots: [
     "/screenshots/kguard-system_overview-1.png",
     "/screenshots/kguard-system_overview-2.png",

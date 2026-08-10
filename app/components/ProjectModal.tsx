@@ -140,8 +140,8 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                     
                   </div>
                   <p className="mt-3 text-center italic text-brand-flame text-xs leading-relaxed max-w-2xl mx-auto">
-                    Cette démonstration ne prend pas en compte les mises à jour récentes versionnées dans le repo 
-                    github et les fonctionnalitées présentées sur cette page.
+                    Cette démonstration vidéo lors d'une version précédente du projet et ne prend pas en compte les mises à jour 
+                    récentes pousées vers le repo github et les fonctionnalitées présentées sur cette page.
                   </p>
                 </div>
               )}
