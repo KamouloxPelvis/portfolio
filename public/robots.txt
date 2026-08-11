@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://portfolio.devopsnotes.org
+Host: https://devopsnotes.org
 
 # Sitemaps
-Sitemap: https://portfolio.devopsnotes.org/sitemap.xml
+Sitemap: https://devopsnotes.org/sitemap.xml

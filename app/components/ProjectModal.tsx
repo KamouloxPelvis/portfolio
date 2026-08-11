@@ -1,7 +1,14 @@
 'use client';
+
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+  type MouseEvent as ReactMouseEvent,
+} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Project } from './panels/Projects';
 
 interface ProjectModalProps {
@@ -15,40 +22,116 @@ interface ZoomedMedia {
   index: number;
 }
 
-export default function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
-  const [zoomedMedia, setZoomedMedia] = useState<ZoomedMedia | null>(null);
+export default function ProjectModal({
+  isOpen,
+  onClose,
+  project,
+}: ProjectModalProps) {
+  const [zoomedMedia, setZoomedMedia] =
+    useState<ZoomedMedia | null>(null);
 
-  // Mémoïsation des screenshots pour éviter les re-renders inutiles
-  const screenshots = useMemo(() => project?.screenshots ?? [], [project?.screenshots]);
+  const screenshots = useMemo(
+    () => project?.screenshots ?? [],
+    [project?.screenshots]
+  );
 
-  const showNext = useCallback((e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    if (screenshots.length === 0 || zoomedMedia === null) return;
-    const nextIndex = (zoomedMedia.index + 1) % screenshots.length;
-    setZoomedMedia({ src: screenshots[nextIndex], index: nextIndex });
-  }, [screenshots, zoomedMedia]);
+  /*
+   * -------------------------------------------------------------
+   * Navigation galerie
+   * -------------------------------------------------------------
+   */
 
-  const showPrev = useCallback((e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    if (screenshots.length === 0 || zoomedMedia === null) return;
-    const prevIndex = (zoomedMedia.index - 1 + screenshots.length) % screenshots.length;
-    setZoomedMedia({ src: screenshots[prevIndex], index: prevIndex });
-  }, [screenshots, zoomedMedia]);
+  const showNext = useCallback(
+    (e?: ReactMouseEvent) => {
+      e?.stopPropagation();
+
+      if (
+        screenshots.length === 0 ||
+        zoomedMedia === null
+      ) {
+        return;
+      }
+
+      const nextIndex =
+        (zoomedMedia.index + 1) % screenshots.length;
+
+      setZoomedMedia({
+        src: screenshots[nextIndex],
+        index: nextIndex,
+      });
+    },
+    [screenshots, zoomedMedia]
+  );
+
+  const showPrev = useCallback(
+    (e?: ReactMouseEvent) => {
+      e?.stopPropagation();
+
+      if (
+        screenshots.length === 0 ||
+        zoomedMedia === null
+      ) {
+        return;
+      }
+
+      const prevIndex =
+        (zoomedMedia.index - 1 + screenshots.length) %
+        screenshots.length;
+
+      setZoomedMedia({
+        src: screenshots[prevIndex],
+        index: prevIndex,
+      });
+    },
+    [screenshots, zoomedMedia]
+  );
+
+  /*
+   * -------------------------------------------------------------
+   * Navigation clavier
+   * -------------------------------------------------------------
+   */
 
   useEffect(() => {
     if (!zoomedMedia) return;
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
-      if (e.key === 'Escape') setZoomedMedia(null);
+      if (e.key === 'ArrowRight') {
+        showNext();
+      }
+
+      if (e.key === 'ArrowLeft') {
+        showPrev();
+      }
+
+      if (e.key === 'Escape') {
+        setZoomedMedia(null);
+      }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+
+    window.addEventListener(
+      'keydown',
+      handleKeyDown
+    );
+
+    return () => {
+      window.removeEventListener(
+        'keydown',
+        handleKeyDown
+      );
+    };
   }, [zoomedMedia, showNext, showPrev]);
 
-  if (!isOpen || !project) return null;
+  if (!isOpen || !project) {
+    return null;
+  }
 
-  // Configuration des légendes basée sur l'ID du projet
+  /*
+   * -------------------------------------------------------------
+   * Captions
+   * -------------------------------------------------------------
+   */
+
   const getCaption = (index: number) => {
     const captions: Record<string, string[]> = {
       kguard: [
@@ -76,13 +159,15 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
         "Endpoint & Compliance : analyse détaillée d'une alerte Wazuh avec preuves, événements et contexte MITRE ATT&CK",
 
         "Network Sentinel : recommandations de sécurité issues de l'audit de posture Kubernetes",
-        "Notifications Cisco Webex : remontée des incidents et alertes de sécurité détectés par K-Guard"
+        "Notifications Cisco Webex : remontée des incidents et alertes de sécurité détectés par K-Guard",
       ],
+
       monitoring: [
         "Dashboard Disponibilité : État du contrôleur Nginx Ingress",
         "Dashboard Performance : Golden Signals (CPU/RAM)",
-        "Dashboard Sécurité : Analyse des codes d'erreur et flux"
+        "Dashboard Sécurité : Analyse des codes d'erreur et flux",
       ],
+
       blog: [
         "Interface utilisateur Cloud-Native optimisée",
         "Architecture MERN durcie sous K3s",
@@ -90,174 +175,1016 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
         "Système de gestion de contenu immuable",
         "Intégration Cloudflare & SSL/TLS",
         "Télémétrie Sentry pour le tracking d'erreurs",
-        "Observabilité des logs applicatifs"
+        "Observabilité des logs applicatifs",
       ],
+
       'kguard-ai': [
-        "Réponse JSON d’analyse : corrélation, niveau de risque, score de confiance et actions recommandées",
+        "Réponse JSON d'analyse : corrélation, niveau de risque, score de confiance et actions recommandées",
         "Healthchecks Spring Boot Actuator : endpoints health, liveness et readiness validés sur le VPS",
         "Arborescence de déploiement VPS : structure centralisée avec deploy, tests, notes et artefacts",
-        "Flux d’intégration K-Guard -> K-Guard AI : ingestion normalisée et analyse backend orientée DevSecOps / LLMOps"
+        "Flux d'intégration K-Guard → K-Guard AI : ingestion normalisée et analyse backend orientée DevSecOps / LLMOps",
       ],
     };
-    return captions[project.id]?.[index] || "Preuve technique de l'infrastructure";
+
+    return (
+      captions[project.id]?.[index] ??
+      "Preuve technique de l'infrastructure"
+    );
   };
 
-  return (
-    <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md" onClick={onClose}>
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
-        onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-6xl bg-brand-bg border border-brand-gold/30 shadow-2xl overflow-hidden max-h-[95vh] flex flex-col font-sans"
-      >
-        {/* Header de la Modale */}
-        <div className="flex items-center justify-between p-5 border-b border-white/10 bg-white/5">
-            <h3 className="text-brand-skull font-black uppercase tracking-tighter text-3xl">{project.title}</h3>
-            <div className="flex items-center gap-4">
-              <button onClick={onClose} className="text-brand-flame-h hover:text-white text-2xl cursor-pointer transition-colors ml-2">✕</button>
-            </div>
-        </div>
+  /*
+   * -------------------------------------------------------------
+   * Rendu
+   * -------------------------------------------------------------
+   */
 
-        <div className="overflow-y-auto p-6 custom-scrollbar">
-          <div className={`grid gap-8 ${project.id === 'blog' ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-4'}`}>
-            
-            {/* Contenu Principal */}
-            <div className={`space-y-10 ${project.id === 'blog' ? '' : 'lg:col-span-3'}`}>
-              
-              {/* Vidéo Pitch */}
-              {project.videoPitch && (
-                <div className="space-y-4">
-                  <h4 className="text-brand-gold font-mono text-[10px] uppercase tracking-[0.3em] flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-brand-gold rounded-full animate-pulse"></span>
-                    📺 Pitch Démo & Visual Evidence
-                  </h4>
-                  <div className="relative aspect-video border border-white/10 bg-black shadow-2xl">
-                    <iframe 
-                      src={project.videoPitch} 
-                      className="absolute inset-0 w-full h-full"
-                      allowFullScreen
-                      title="Project Video Pitch"
-                    ></iframe>
-                    
-                  </div>
-                  <p className="mt-3 text-center italic text-brand-flame text-xs leading-relaxed max-w-2xl mx-auto">
-                    Cette démonstration vidéo a été réalisée lors d'une version précédente du projet et ne prend pas en compte les mises à jour 
-                    récentes pousées vers le repo github et les fonctionnalités présentées sur cette page.
-                  </p>
-                </div>
+  return (
+    <>
+      {/* =========================================================
+          MODALE PRINCIPALE
+          ========================================================= */}
+
+      <div
+        className="
+          fixed inset-0 z-100
+          flex items-center justify-center
+          p-3 md:p-6
+          bg-black/90
+          backdrop-blur-sm
+        "
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.98,
+            y: 8,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            scale: 0.98,
+            y: 8,
+          }}
+          transition={{
+            duration: 0.2,
+          }}
+          onClick={(e) => e.stopPropagation()}
+          className="
+            relative
+            w-full
+            max-w-6xl
+            max-h-[95vh]
+            flex flex-col
+            overflow-hidden
+            bg-[#0d0d0f]
+            border border-white/10
+            shadow-2xl
+            text-slate-200
+            font-sans
+          "
+        >
+
+          {/* =====================================================
+              HEADER
+              ===================================================== */}
+
+          <header
+            className="
+              shrink-0
+              flex items-center justify-between
+              px-5 py-4
+              md:px-7 md:py-5
+              bg-[#111113]
+              border-b border-white/10
+            "
+          >
+            <div className="min-w-0">
+
+              <p
+                className="
+                  text-[9px]
+                  font-mono
+                  uppercase
+                  tracking-[0.2em]
+                  text-brand-gold
+                  mb-1
+                "
+              >
+                Projet
+              </p>
+
+              <h3
+                className="
+                  text-xl
+                  md:text-3xl
+                  font-bold
+                  tracking-tight
+                  text-white
+                  truncate
+                "
+              >
+                {project.title}
+              </h3>
+
+            </div>
+
+            <button
+              onClick={onClose}
+              type="button"
+              aria-label="Fermer la fenêtre"
+              className="
+                ml-4
+                shrink-0
+                w-9 h-9
+                flex items-center justify-center
+                border border-white/10
+                text-slate-400
+                hover:text-white
+                hover:border-white/30
+                transition-colors
+                text-xl
+                cursor-pointer
+              "
+            >
+              ×
+            </button>
+
+          </header>
+
+
+          {/* =====================================================
+              LIENS K-GUARD — ACCÈS RAPIDE
+              ===================================================== */}
+
+          {project.id === 'kguard' && (
+            <section
+              className="
+                shrink-0
+                flex
+                flex-wrap
+                items-center
+                gap-3
+                px-5 py-4
+                md:px-7
+                bg-[#0d0d0f]
+                border-b border-white/10
+              "
+            >
+
+              {project.repo && (
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex
+                    items-center
+                    px-5 py-2.5
+                    border border-white/20
+                    text-slate-200
+                    text-[10px]
+                    font-bold
+                    uppercase
+                    tracking-widest
+                    hover:bg-white/5
+                    hover:border-brand-gold/60
+                    hover:text-brand-gold
+                    transition-all
+                  "
+                >
+                  Code source
+                </a>
               )}
 
-              {/* Description */}
-              <div className="text-sm font-sans leading-relaxed text-slate-300 prose prose-invert max-w-none"
-                  dangerouslySetInnerHTML={{ __html: project.desc }} 
-              />
-              
-              {/* Zone d'Actions */}
-              <div className="space-y-6">
-                {project.architectureDoc && (
-                  <div className="p-6 border border-white/5 bg-white/3 rounded-sm flex flex-col md:flex-row items-center gap-6 group hover:border-brand-flame-h/20 transition-colors">
-                    <div className="w-24 aspect-3/4 relative border border-white/10 shrink-0 shadow-lg">
-                      <Image src="/docs/thumbnail_k-guard.png" fill className="object-cover opacity-60 group-hover:opacity-100 transition-opacity" alt="Architecture Report Thumbnail" />
-                    </div>
-                    <div className="space-y-3 flex-1">
-                      <h5 className="text-white font-bold uppercase text-[11px] tracking-widest">Dossier de Conception Technique | Technical Design Document</h5>
-                      <p className="text-slate-400 text-[10px] font-sans leading-normal">Détails de l&apos;implémentation SRE, logique de remédiation active et micro-segmentation Sentinel.</p>
-                      <a 
-                        href={project.architectureDoc}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-6 py-3 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:opacity-90 transition-all"
+              {project.blogUrl && (
+                <a
+                  href={project.blogUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex
+                    items-center
+                    px-5 py-2.5
+                    border border-white/20
+                    text-slate-300
+                    text-[10px]
+                    font-bold
+                    uppercase
+                    tracking-widest
+                    hover:bg-white/5
+                    hover:text-white
+                    transition-all
+                  "
+                >
+                  Article technique
+                </a>
+              )}
+
+            </section>
+          )}
+
+
+          {/* =====================================================
+              CONTENU PRINCIPAL
+              ===================================================== */}
+
+          <div
+            className="
+              overflow-y-auto
+              custom-scrollbar
+              px-5 py-6
+              md:px-7 md:py-8
+            "
+          >
+            <div
+              className={`
+                grid
+                gap-8
+                ${
+                  project.id === 'blog'
+                    ? 'grid-cols-1'
+                    : 'grid-cols-1 lg:grid-cols-4'
+                }
+              `}
+            >
+
+              {/* =================================================
+                  COLONNE PRINCIPALE
+                  ================================================= */}
+
+              <main
+                className={`
+                  space-y-10
+                  ${
+                    project.id === 'blog'
+                      ? ''
+                      : 'lg:col-span-3'
+                  }
+                `}
+              >
+
+                {/* -------------------------------------------------
+                    VIDÉO
+                    ------------------------------------------------- */}
+
+                {project.videoPitch && (
+                  <section className="space-y-4">
+
+                    <div>
+                      <p
+                        className="
+                          text-[9px]
+                          font-mono
+                          uppercase
+                          tracking-[0.2em]
+                          text-slate-500
+                          mb-1
+                        "
                       >
-                        Consulter le Dossier de Conception Technique PDF
-                      </a>
+                        Démonstration
+                      </p>
+
+                      <h4
+                        className="
+                          text-lg
+                          font-semibold
+                          text-white
+                        "
+                      >
+                        Présentation vidéo
+                      </h4>
                     </div>
-                  </div>
+
+                    <div
+                      className="
+                        relative
+                        aspect-video
+                        border border-white/10
+                        bg-black
+                        overflow-hidden
+                      "
+                    >
+                      <iframe
+                        src={project.videoPitch}
+                        className="
+                          absolute
+                          inset-0
+                          w-full
+                          h-full
+                        "
+                        allowFullScreen
+                        title={`${project.title} — présentation vidéo`}
+                      />
+                    </div>
+
+                    <p
+                      className="
+                        text-xs
+                        leading-relaxed
+                        text-slate-500
+                        max-w-3xl
+                      "
+                    >
+                      Cette démonstration vidéo correspond à une
+                      version antérieure du projet et ne prend pas
+                      en compte les évolutions récentes présentées
+                      sur cette page.
+                    </p>
+
+                  </section>
                 )}
 
-                <div className={`flex flex-wrap items-center gap-3 ${project.architectureDoc ? 'pt-4 border-t border-white/5' : ''}`}>
-                  {project.id !== 'kguard' && project.id !== 'kguard-ai' && project.href && (
-                    <a href={project.href} target="_blank" rel="noopener noreferrer"
-                       className="flex items-center gap-2 px-6 py-3 border border-brand-gold text-brand-gold text-[10px] font-bold uppercase tracking-widest hover:bg-brand-gold/10 transition-all">
-                      Lancer l&apos;application
-                    </a>
-                  )}
-                  {project.repo && (
-                    <a href={project.repo} target="_blank" 
-                       className="flex items-center gap-2 px-6 py-3 border border-brand-flame-p text-brand-flame-p text-[10px] font-bold uppercase tracking-widest hover:bg-brand-flame-p hover:text-white transition-all">
-                      <Image src="/gitlab.png" alt="GitLab Logo" width={16} height={16} className="object-contain" />
-                      Repo Git
-                    </a>
-                  )}
-                </div>
-              </div>
 
-              {/* Galerie Horizontale (UNIQUEMENT BLOG) */}
-              {project.id === 'blog' && (
-                <div className="pt-8 border-t border-white/10">
-                  <h4 className="text-white/40 font-mono text-[9px] uppercase tracking-[0.2em] mb-6">Visual Evidence</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {screenshots.map((img, i) => (
-                      <button key={i} onClick={() => setZoomedMedia({ src: img, index: i })}
-                        className="relative aspect-video border border-white/10 overflow-hidden bg-zinc-900 group cursor-zoom-in">
-                        <Image src={img} fill className="object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt="Evidence" />
+                {/* -------------------------------------------------
+                    DESCRIPTION
+                    ------------------------------------------------- */}
+
+                <section>
+
+                  <div className="mb-5">
+
+                    <p
+                      className="
+                        text-[9px]
+                        font-mono
+                        uppercase
+                        tracking-[0.2em]
+                        text-slate-500
+                        mb-1
+                      "
+                    >
+                      Présentation
+                    </p>
+
+                    <h4
+                      className="
+                        text-lg
+                        font-semibold
+                        text-white
+                      "
+                    >
+                      À propos du projet
+                    </h4>
+
+                  </div>
+
+                  <div
+                    className="
+                      project-modal-content
+                      text-sm
+                      font-sans
+                      leading-7
+                      text-slate-300
+                      max-w-4xl
+                    "
+                    dangerouslySetInnerHTML={{
+                      __html: project.desc,
+                    }}
+                  />
+
+                </section>
+
+
+                {/* -------------------------------------------------
+                    DOCUMENTATION
+                    ------------------------------------------------- */}
+
+                {project.architectureDoc && (
+                  <section
+                    className="
+                      p-5
+                      md:p-6
+                      border border-white/10
+                      bg-[#111113]
+                    "
+                  >
+
+                    <div
+                      className="
+                        flex
+                        flex-col
+                        md:flex-row
+                        items-start
+                        gap-5
+                        md:gap-6
+                      "
+                    >
+
+                      <div
+                        className="
+                          relative
+                          w-20
+                          md:w-24
+                          aspect-3/4
+                          border border-white/10
+                          bg-black
+                          shrink-0
+                          overflow-hidden
+                        "
+                      >
+                        <Image
+                          src="/docs/thumbnail_k-guard.png"
+                          fill
+                          className="object-cover"
+                          alt="Aperçu du dossier de conception technique"
+                        />
+                      </div>
+
+                      <div className="space-y-3">
+
+                        <div>
+
+                          <p
+                            className="
+                              text-[9px]
+                              font-mono
+                              uppercase
+                              tracking-[0.2em]
+                              text-brand-gold
+                              mb-1
+                            "
+                          >
+                            Documentation
+                          </p>
+
+                          <h5
+                            className="
+                              text-base
+                              font-semibold
+                              text-white
+                            "
+                          >
+                            Dossier de conception technique
+                          </h5>
+
+                        </div>
+
+                        <p
+                          className="
+                            text-xs
+                            leading-relaxed
+                            text-slate-400
+                            max-w-2xl
+                          "
+                        >
+                          Documentation détaillant l&apos;architecture,
+                          l&apos;implémentation et les choix techniques
+                          du projet.
+                        </p>
+
+                        <a
+                          href={project.architectureDoc}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="
+                            inline-flex
+                            px-5 py-2.5
+                            bg-brand-gold
+                            text-black
+                            text-[10px]
+                            font-bold
+                            uppercase
+                            tracking-widest
+                            hover:brightness-110
+                            transition-all
+                          "
+                        >
+                          Consulter le PDF
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                  </section>
+                )}
+
+
+                {/* -------------------------------------------------
+                    LIENS
+                    ------------------------------------------------- */}
+
+                <section
+                  className={`
+                    flex
+                    flex-wrap
+                    items-center
+                    gap-3
+                    ${
+                      project.architectureDoc
+                        ? 'pt-4 border-t border-white/10'
+                        : ''
+                    }
+                  `}
+                >
+
+                  {project.id !== 'kguard' &&
+                    project.id !== 'kguard-ai' &&
+                    project.href && (
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
+                          inline-flex
+                          items-center
+                          px-5 py-2.5
+                          border border-white/20
+                          text-white
+                          text-[10px]
+                          font-bold
+                          uppercase
+                          tracking-widest
+                          hover:bg-white/5
+                          hover:border-white/40
+                          transition-all
+                        "
+                      >
+                        Voir le projet
+                      </a>
+                    )}
+
+                  {project.repo &&
+                    project.id !== 'kguard' && (
+                      <a
+                        href={project.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
+                          inline-flex
+                          items-center
+                          px-5 py-2.5
+                          border border-white/20
+                          text-slate-200
+                          text-[10px]
+                          font-bold
+                          uppercase
+                          tracking-widest
+                          hover:bg-white/5
+                          hover:border-brand-gold/60
+                          hover:text-brand-gold
+                          transition-all
+                        "
+                      >
+                        Code source
+                      </a>
+                    )}
+
+                  {project.blogUrl &&
+                    project.id !== 'kguard' && (
+                      <a
+                        href={project.blogUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
+                          inline-flex
+                          items-center
+                          px-5 py-2.5
+                          border border-white/20
+                          text-slate-300
+                          text-[10px]
+                          font-bold
+                          uppercase
+                          tracking-widest
+                          hover:bg-white/5
+                          hover:text-white
+                          transition-all
+                        "
+                      >
+                        Article technique
+                      </a>
+                    )}
+
+                </section>
+
+
+                {/* -------------------------------------------------
+                    GALERIE DU BLOG
+                    ------------------------------------------------- */}
+
+                {project.id === 'blog' && (
+                  <section
+                    className="
+                      pt-8
+                      border-t border-white/10
+                    "
+                  >
+
+                    <div className="mb-5">
+
+                      <p
+                        className="
+                          text-[9px]
+                          font-mono
+                          uppercase
+                          tracking-[0.2em]
+                          text-slate-500
+                        "
+                      >
+                        Galerie
+                      </p>
+
+                      <h4
+                        className="
+                          text-sm
+                          font-semibold
+                          text-white
+                          mt-1
+                        "
+                      >
+                        Captures du projet
+                      </h4>
+
+                    </div>
+
+                    <div
+                      className="
+                        grid
+                        grid-cols-2
+                        md:grid-cols-3
+                        lg:grid-cols-4
+                        gap-4
+                      "
+                    >
+
+                      {screenshots.map((img, index) => (
+                        <button
+                          key={img}
+                          type="button"
+                          onClick={() =>
+                            setZoomedMedia({
+                              src: img,
+                              index,
+                            })
+                          }
+                          className="
+                            relative
+                            aspect-video
+                            border border-white/10
+                            overflow-hidden
+                            bg-black
+                            group
+                            cursor-zoom-in
+                          "
+                        >
+                          <Image
+                            src={img}
+                            fill
+                            className="
+                              object-cover
+                              opacity-80
+                              group-hover:opacity-100
+                              group-hover:scale-[1.02]
+                              transition-all
+                              duration-300
+                            "
+                            alt={getCaption(index)}
+                          />
+                        </button>
+                      ))}
+
+                    </div>
+
+                  </section>
+                )}
+
+              </main>
+
+
+              {/* =================================================
+                  GALERIE SIDEBAR
+                  ================================================= */}
+
+              {project.id !== 'blog' && (
+                <aside
+                  className="
+                    lg:col-span-1
+                    border-l border-white/10
+                    lg:pl-5
+                  "
+                >
+
+                  <div className="mb-4">
+
+                    <p
+                      className="
+                        text-[9px]
+                        font-mono
+                        uppercase
+                        tracking-[0.2em]
+                        text-slate-500
+                      "
+                    >
+                      Galerie
+                    </p>
+
+                    <h4
+                      className="
+                        text-sm
+                        font-semibold
+                        text-white
+                        mt-1
+                      "
+                    >
+                      Captures du projet
+                    </h4>
+
+                  </div>
+
+                  <div
+                    className="
+                      grid
+                      grid-cols-2
+                      lg:grid-cols-1
+                      gap-3
+                    "
+                  >
+
+                    {screenshots.map((img, index) => (
+                      <button
+                        key={img}
+                        type="button"
+                        onClick={() =>
+                          setZoomedMedia({
+                            src: img,
+                            index,
+                          })
+                        }
+                        className="
+                          relative
+                          aspect-video
+                          border border-white/10
+                          overflow-hidden
+                          bg-black
+                          group
+                          cursor-zoom-in
+                        "
+                      >
+                        <Image
+                          src={img}
+                          fill
+                          className="
+                            object-cover
+                            opacity-80
+                            group-hover:opacity-100
+                            group-hover:scale-[1.02]
+                            transition-all
+                            duration-300
+                          "
+                          alt={getCaption(index)}
+                        />
                       </button>
                     ))}
+
                   </div>
-                </div>
+
+                </aside>
               )}
+
             </div>
-
-            {/* Sidebar (K-GUARD et MONITORING) */}
-            {project.id !== 'blog' && (
-              <div className="space-y-6 border-l border-white/5 pl-6 hidden lg:block">
-                <h4 className="text-white/40 font-mono text-[9px] uppercase tracking-[0.2em]">Visual Evidence</h4>
-                <div className="grid grid-cols-1 gap-3">
-                  {screenshots.map((img, i) => (
-                    <button key={i} onClick={() => setZoomedMedia({ src: img, index: i })}
-                      className="relative aspect-video border border-white/10 overflow-hidden bg-zinc-900 group cursor-zoom-in">
-                      <Image src={img} fill className="object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt="Evidence thumbnail" />
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
-        </div>
-      </motion.div>
 
-      {/* Vue Zoomée (Galerie interactive) */}
+        </motion.div>
+      </div>
+
+
+      {/* =========================================================
+          GALERIE PLEIN ÉCRAN
+          ========================================================= */}
+
       <AnimatePresence>
         {zoomedMedia && (
-          <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setZoomedMedia(null)}
-            className="fixed inset-0 z-110 flex items-center justify-center bg-black/98 backdrop-blur-xl p-4 md:p-12 cursor-zoom-out"
-          >
-            <button onClick={showPrev} className="absolute left-4 md:left-10 z-120 p-4 text-white/20 hover:text-brand-gold transition-all group hidden md:block">
-              <span className="text-6xl font-thin group-hover:-translate-x-2 block transition-transform">‹</span>
-            </button>
-            <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative w-full h-full max-w-7xl flex flex-col items-center justify-center gap-6"
-            >
-              <div className="relative w-full h-[75vh] md:h-[80vh]">
-                <AnimatePresence mode="wait">
-                  <motion.div key={zoomedMedia.src} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.2 }} className="relative w-full h-full">
-                    <Image src={zoomedMedia.src} fill className="object-contain" alt="Evidence Zoom" priority />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <span className="text-brand-gold font-mono text-[10px] uppercase tracking-[0.4em] mb-2">Evidence {zoomedMedia.index + 1} / {screenshots.length}</span>
-                <p className="text-slate-200 font-sans text-sm md:text-base max-w-2xl bg-white/5 px-6 py-2 border border-white/10 rounded-sm">
-                  {getCaption(zoomedMedia.index)}
-                </p>
-              </div>
-            </motion.div>
-            <button onClick={showNext} className="absolute right-4 md:right-10 z-120 p-4 text-white/20 hover:text-brand-gold transition-all group hidden md:block">
-              <span className="text-6xl font-thin group-hover:translate-x-2 block transition-transform">›</span>
-            </button>
-          </motion.div>
+          <ZoomedImageViewer
+            media={zoomedMedia}
+            screenshots={screenshots}
+            getCaption={getCaption}
+            onClose={() => setZoomedMedia(null)}
+            onPrevious={showPrev}
+            onNext={showNext}
+          />
         )}
       </AnimatePresence>
-    </div>
-  )};
+    </>
+  );
+}
+
+
+/* =============================================================
+   COMPOSANT GALERIE PLEIN ÉCRAN
+
+   Séparé de la modale principale afin que TypeScript sache
+   précisément que "media" n'est jamais null dans ce composant.
+   ============================================================= */
+
+interface ZoomedImageViewerProps {
+  media: ZoomedMedia;
+  screenshots: string[];
+  getCaption: (index: number) => string;
+  onClose: () => void;
+  onPrevious: (e?: ReactMouseEvent) => void;
+  onNext: (e?: ReactMouseEvent) => void;
+}
+
+function ZoomedImageViewer({
+  media,
+  screenshots,
+  getCaption,
+  onClose,
+  onPrevious,
+  onNext,
+}: ZoomedImageViewerProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      className="
+        fixed inset-0 z-110
+        flex items-center justify-center
+        bg-black/98
+        p-4 md:p-10
+        cursor-zoom-out
+      "
+    >
+
+      {/* =========================================================
+          PRÉCÉDENTE
+          ========================================================= */}
+
+      <button
+        type="button"
+        onClick={onPrevious}
+        aria-label="Image précédente"
+        className="
+          absolute
+          left-2 md:left-8
+          z-120
+          w-12 h-12
+          items-center justify-center
+          border border-white/10
+          bg-black/40
+          text-white/50
+          hover:text-white
+          hover:border-white/30
+          transition-all
+          hidden md:flex
+          cursor-pointer
+        "
+      >
+        <span className="text-3xl font-light">
+          ‹
+        </span>
+      </button>
+
+
+      {/* =========================================================
+          CONTENU
+          ========================================================= */}
+
+      <motion.div
+        initial={{ scale: 0.96 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.96 }}
+        onClick={(e) => e.stopPropagation()}
+        className="
+          relative
+          w-full
+          h-full
+          max-w-7xl
+          flex
+          flex-col
+          items-center
+          justify-center
+          gap-5
+        "
+      >
+
+        <div
+          className="
+            relative
+            w-full
+            h-[72vh]
+            md:h-[78vh]
+          "
+        >
+
+          <AnimatePresence mode="wait">
+
+            <motion.div
+              key={media.src}
+              initial={{
+                opacity: 0,
+                x: 15,
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+              }}
+              exit={{
+                opacity: 0,
+                x: -15,
+              }}
+              transition={{
+                duration: 0.2,
+              }}
+              className="
+                relative
+                w-full
+                h-full
+              "
+            >
+              <Image
+                src={media.src}
+                fill
+                className="object-contain"
+                alt={getCaption(media.index)}
+                priority
+              />
+            </motion.div>
+
+          </AnimatePresence>
+
+        </div>
+
+
+        {/* =======================================================
+            LÉGENDE
+            ======================================================= */}
+
+        <div
+          className="
+            flex
+            flex-col
+            items-center
+            text-center
+            max-w-3xl
+          "
+        >
+
+          <span
+            className="
+              text-brand-gold
+              font-mono
+              text-[9px]
+              uppercase
+              tracking-[0.2em]
+              mb-2
+            "
+          >
+            Capture {media.index + 1} / {screenshots.length}
+          </span>
+
+          <p
+            className="
+              text-slate-200
+              text-xs
+              md:text-sm
+              leading-relaxed
+            "
+          >
+            {getCaption(media.index)}
+          </p>
+
+        </div>
+
+      </motion.div>
+
+
+      {/* =========================================================
+          SUIVANTE
+          ========================================================= */}
+
+      <button
+        type="button"
+        onClick={onNext}
+        aria-label="Image suivante"
+        className="
+          absolute
+          right-2 md:right-8
+          z-120
+          w-12 h-12
+          items-center justify-center
+          border border-white/10
+          bg-black/40
+          text-white/50
+          hover:text-white
+          hover:border-white/30
+          transition-all
+          hidden md:flex
+          cursor-pointer
+        "
+      >
+        <span className="text-3xl font-light">
+          ›
+        </span>
+      </button>
+
+    </motion.div>
+  );
+}
