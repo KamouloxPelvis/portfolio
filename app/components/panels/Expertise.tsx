@@ -67,8 +67,13 @@ const SKILL_GROUPS = [
           'Linux (Debian) · Windows Server · Active Directory · GPO · DNS · DHCP · WSUS',
       },
       {
+        label: 'Gestion de parc',
+        items:
+          'GLPI · Microsoft SCCM / Configuration Manager',
+      },
+      {
         label: 'Virtualisation',
-        items: 'vSphere',
+        items: 'Hyper-V · vSphere · VMWare Workstation · KVM/QEMU/libvirt'
       },
     ],
   },
@@ -85,7 +90,7 @@ const SKILL_GROUPS = [
       {
         label: 'Sécurité opérationnelle',
         items:
-          'SSH · VPN · HTTPS · SSL/TLS · HashiCorp Vault · Ansible Vault',
+          'SSH · VPN (OpenVPN, WireGuard) · HTTPS · SSL/TLS · HashiCorp Vault · Ansible Vault',
       },
       {
         label: 'Audit & détection',
@@ -122,7 +127,7 @@ const SKILL_GROUPS = [
     groups: [
       {
         label: 'CI/CD & Infrastructure as Code',
-        items: 'GitLab CI/CD · GitHub Actions · Ansible · Terraform · API REST',
+        items: 'GitLab CI/CD · GitHub Actions · Ansible · API REST',
       },
       {
         label: 'Langages',

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { AnimatePresence } from 'framer-motion';
-import ProjectModal from '../ProjectModal';
+import React, { useState } from "react";
+import Image from "next/image";
+import { AnimatePresence } from "framer-motion";
+import ProjectModal from "../ProjectModal";
 
 export interface Project {
   id: string;
@@ -22,13 +22,13 @@ export interface Project {
 
 const PROJECTS_DATA: Project[] = [
   {
-    id: 'kguard',
-    href: 'https://app.devopsnotes.org',
-    img: '/screenshots/capture_sec-infra-app.jpg',
-    title: 'K-Guard v1.7.0',
+    id: "kguard",
+    href: "https://app.devopsnotes.org",
+    img: "/screenshots/capture_sec-infra-app.jpg",
+    title: "K-Guard v1.7.0",
 
     stack:
-      'FastAPI • Python 3.12 • Kubernetes/K3s • Wazuh • Falco • ELK • Docker • Ansible • TLS/PKI • JWT • GitHub Actions',
+      "FastAPI • Python 3.12 • Kubernetes/K3s • Wazuh • Falco • ELK • Docker • Ansible • TLS/PKI • JWT • GitHub Actions",
 
     shortDesc:
       "Plateforme de sécurité et d'observabilité pour clusters K3s, développée pour centraliser la supervision, la détection d'événements et le durcissement réseau.",
@@ -157,48 +157,46 @@ const PROJECTS_DATA: Project[] = [
       </section>
     `,
 
-    repo: 'https://github.com/KamouloxPelvis/K-Guard',
+    repo: "https://github.com/KamouloxPelvis/K-Guard",
 
     blogUrl:
-      'https://blog.devopsnotes.org/articles/k-guard-v170-vers-une-gouvernance-plus-matrise-de-la-scurit-dun-cluster-k3s',
+      "https://blog.devopsnotes.org/articles/k-guard-v170-vers-une-gouvernance-plus-matrise-de-la-scurit-dun-cluster-k3s",
 
-    videoPitch:
-      'https://www.youtube.com/embed/KVLKYoqDYM4',
+    videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
 
-    architectureDoc:
-      '/docs/Dossier_de_conception_technique_K-Guard_v1.7.0.pdf',
+    architectureDoc: "/docs/Dossier_de_conception_technique_K-Guard_v1.7.0.pdf",
 
     screenshots: [
-      '/screenshots/kguard-system_overview-1.png',
-      '/screenshots/kguard-system_overview-2.png',
-      '/screenshots/kguard-security-1.png',
-      '/screenshots/kguard-security-2.png',
-      '/screenshots/kguard-sentinel_map-1.png',
-      '/screenshots/kguard-sentinel_map-2.png',
-      '/screenshots/kguard-sentinel_map-3.png',
-      '/screenshots/kguard-sentinel_map-4.png',
-      '/screenshots/kguard-sentinel_policies.png',
-      '/screenshots/kguard-sentinel_security-posture.png',
-      '/screenshots/kguard-sentinel_security-recommendations.png',
-      '/screenshots/kguard-settings.png',
-      '/screenshots/kguard-docs.png',
-      '/screenshots/kguard-wazuh-endpoints-1.png',
-      '/screenshots/kguard-wazuh-endpoints-2.png',
-      '/screenshots/kguard-wazuh-security-posture.png',
-      '/screenshots/kguard-wazuh-alerts-1.png',
-      '/screenshots/kguard-wazuh-alerts-2.png',
-      '/screenshots/kguard-webex.png',
+      "/screenshots/kguard-system_overview-1.png",
+      "/screenshots/kguard-system_overview-2.png",
+      "/screenshots/kguard-security-1.png",
+      "/screenshots/kguard-security-2.png",
+      "/screenshots/kguard-sentinel_map-1.png",
+      "/screenshots/kguard-sentinel_map-2.png",
+      "/screenshots/kguard-sentinel_map-3.png",
+      "/screenshots/kguard-sentinel_map-4.png",
+      "/screenshots/kguard-sentinel_policies.png",
+      "/screenshots/kguard-sentinel_security-posture.png",
+      "/screenshots/kguard-sentinel_security-recommendations.png",
+      "/screenshots/kguard-settings.png",
+      "/screenshots/kguard-docs.png",
+      "/screenshots/kguard-wazuh-endpoints-1.png",
+      "/screenshots/kguard-wazuh-endpoints-2.png",
+      "/screenshots/kguard-wazuh-security-posture.png",
+      "/screenshots/kguard-wazuh-alerts-1.png",
+      "/screenshots/kguard-wazuh-alerts-2.png",
+      "/screenshots/kguard-webex.png",
     ],
   },
 
   {
-    id: 'kguard-ai',
-    href: 'https://github.com/KamouloxPelvis/K-Guard-AI',
-    img: '/screenshots/k-guard-ai-illustration.png',
-    title: 'K-Guard AI v0.6.0',
+    id: "kguard-ai",
+    href: "https://github.com/KamouloxPelvis/K-Guard-AI",
+    img: "/screenshots/k-guard-ai-illustration.png",
+    title: "K-Guard AI v0.6.0",
 
     stack:
-      'Java 21 • Spring Boot 3.5 • Docker • GHCR • VPS • Actuator • Ollama • Elasticsearch • Kubernetes • LLMOps',
+      "Java 21 • Spring Boot 3.5 • Docker • GHCR • VPS • Actuator • Ollama • Elasticsearch • Kubernetes • LLMOps",
 
     shortDesc:
       "Microservice chargé d'analyser et d'enrichir les alertes de sécurité utilisées par K-Guard.",
@@ -299,24 +297,23 @@ const PROJECTS_DATA: Project[] = [
       </div>
     `,
 
-    repo: 'https://github.com/KamouloxPelvis/K-Guard-AI',
+    repo: "https://github.com/KamouloxPelvis/K-Guard-AI",
 
     screenshots: [
-      '/screenshots/k-guard-ai-illustration.png',
-      '/screenshots/k-guard-ai-illustration.png',
-      '/screenshots/k-guard-ai-illustration.png',
-      '/screenshots/k-guard-ai-illustration.png',
+      "/screenshots/k-guard-ai-illustration.png",
+      "/screenshots/k-guard-ai-illustration.png",
+      "/screenshots/k-guard-ai-illustration.png",
+      "/screenshots/k-guard-ai-illustration.png",
     ],
   },
 
   {
-    id: 'monitoring',
-    href: 'https://monitoring.devopsnotes.org',
-    img: '/screenshots/capture_monitoring.png',
-    title: 'Infrastructure de monitoring',
+    id: "monitoring",
+    href: "https://monitoring.devopsnotes.org",
+    img: "/screenshots/capture_monitoring.png",
+    title: "Infrastructure de monitoring",
 
-    stack:
-      'Prometheus • Grafana • K3s • Node Exporter • cAdvisor',
+    stack: "Prometheus • Grafana • K3s • Node Exporter • cAdvisor",
 
     shortDesc:
       "Infrastructure de supervision d'un cluster K3s basée sur Prometheus et Grafana.",
@@ -355,20 +352,20 @@ const PROJECTS_DATA: Project[] = [
     `,
 
     screenshots: [
-      '/screenshots/monitoring-capture-1.png',
-      '/screenshots/monitoring-capture-2.png',
-      '/screenshots/monitoring-capture-3.png',
+      "/screenshots/monitoring-capture-1.png",
+      "/screenshots/monitoring-capture-2.png",
+      "/screenshots/monitoring-capture-3.png",
     ],
   },
 
   {
-    id: 'blog',
-    href: 'https://blog.devopsnotes.org',
-    img: '/screenshots/blog_devopsnotes.png',
-    title: 'Blog DevOpsNotes',
+    id: "blog",
+    href: "https://blog.devopsnotes.org",
+    img: "/screenshots/blog_devopsnotes.png",
+    title: "Blog DevOpsNotes",
 
     stack:
-      'React/TypeScript • Node.js/Express • MongoDB • Docker • K3s • Nginx • GitLab CI • Cloudflare • Sentry • Grafana',
+      "React/TypeScript • Node.js/Express • MongoDB • Docker • K3s • Nginx • GitLab CI • Cloudflare • Sentry • Grafana",
 
     shortDesc:
       "Blog technique et laboratoire Cloud-Native utilisé pour expérimenter le développement, le déploiement et l'observabilité d'une application web.",
@@ -398,27 +395,25 @@ const PROJECTS_DATA: Project[] = [
       </div>
     `,
 
-    repo: 'https://gitlab.com/portfolio-kamal-guidadou/devopsnotes-blog',
+    repo: "https://gitlab.com/portfolio-kamal-guidadou/devopsnotes-blog",
 
     screenshots: [
-      '/screenshots/blog-capture-0.png',
-      '/screenshots/blog-capture-1.png',
-      '/screenshots/blog-capture-2.png',
-      '/screenshots/blog-capture-3.png',
-      '/screenshots/blog-capture-4.png',
-      '/screenshots/blog-capture-5.png',
-      '/screenshots/blog-capture-6.png',
+      "/screenshots/blog-capture-0.png",
+      "/screenshots/blog-capture-1.png",
+      "/screenshots/blog-capture-2.png",
+      "/screenshots/blog-capture-3.png",
+      "/screenshots/blog-capture-4.png",
+      "/screenshots/blog-capture-5.png",
+      "/screenshots/blog-capture-6.png",
     ],
   },
 ];
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] =
-    useState<Project | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <div className="h-full w-full flex flex-col space-y-6 px-4 md:px-8 py-6 overflow-y-auto custom-scrollbar">
-
       <div className="border-b border-white/10 pb-4">
         <h2 className="text-2xl md:text-4xl font-black uppercase text-brand-skull">
           Réalisations
@@ -430,16 +425,13 @@ export default function Projects() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
-
         {PROJECTS_DATA.map((proj) => (
           <button
             key={proj.id}
             onClick={() => setSelectedProject(proj)}
             className="text-left group flex flex-col h-full min-h-95 border border-brand-gold/30 bg-black transition-all hover:border-brand-gold/60"
           >
-
             <div className="relative aspect-video w-full overflow-hidden bg-zinc-900 shrink-0">
-
               <Image
                 src={proj.img}
                 alt={proj.title}
@@ -448,16 +440,13 @@ export default function Projects() {
               />
 
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-
                 <span className="border border-brand-gold text-brand-gold px-4 py-2 font-sans text-xs uppercase tracking-widest">
                   Voir le projet
                 </span>
-
               </div>
             </div>
 
             <div className="p-4 flex flex-col justify-start grow bg-black">
-
               <h3 className="text-lg font-bold text-brand-gold uppercase tracking-tighter">
                 {proj.title}
               </h3>
@@ -469,11 +458,9 @@ export default function Projects() {
               <p className="text-sm text-slate-300 mt-3 leading-relaxed line-clamp-3">
                 {proj.shortDesc}
               </p>
-
             </div>
           </button>
         ))}
-
       </div>
 
       <AnimatePresence>
@@ -485,7 +472,6 @@ export default function Projects() {
           />
         )}
       </AnimatePresence>
-
     </div>
   );
 }
