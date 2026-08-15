@@ -31,130 +31,133 @@ const PROJECTS_DATA: Project[] = [
       "FastAPI • Python 3.12 • Kubernetes/K3s • Wazuh • Falco • ELK • Docker • Ansible • TLS/PKI • JWT • GitHub Actions",
 
     shortDesc:
-      "Plateforme de sécurité et d'observabilité pour clusters K3s, développée pour centraliser la supervision, la détection d'événements et le durcissement réseau.",
+      "Plateforme DevSecOps pour K3s réunissant observabilité, sécurité runtime, visibilité Wazuh et gouvernance des NetworkPolicies dans une interface d'exploitation unifiée.",  
 
     desc: `
-      <section class="space-y-8">
+      <div class="space-y-8 text-slate-300 font-sans text-[14px] leading-relaxed">
 
-        <div>
-          <p class="mb-5">
-            <strong>K-Guard</strong> est une plateforme DevSecOps auto-hébergée
-            conçue pour centraliser la supervision, la sécurité runtime et la
-            gouvernance réseau d'un cluster <strong>Kubernetes K3s</strong>.
+        <section>
+          <p class="text-white text-base leading-relaxed">
+            <strong>K-Guard</strong> est une plateforme DevSecOps que j'ai conçue
+            pour centraliser l'observabilité, la sécurité runtime et la gouvernance
+            réseau d'un cluster <strong>K3s</strong>.
           </p>
 
-          <div class="border-l-2 border-brand-gold/40 bg-brand-gold/4 px-4 py-3">
-            <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-1">
-              Version 1.7.0 — Network Sentinel
-            </p>
+          <p class="mt-4">
+            L'objectif n'est pas de remplacer les outils spécialisés de l'écosystème
+            Kubernetes, mais de construire une couche d'exploitation capable de
+            réunir leurs informations dans une même interface et de transformer
+            ces données en actions opérationnelles contrôlées.
+          </p>
+        </section>
 
-            <p class="text-slate-300">
-              Cette version renforce le module <strong>Network Sentinel</strong>
-              avec un audit de posture de sécurité, des recommandations et une
-              gestion groupée des <strong>NetworkPolicies</strong>, avec ciblage
-              par namespace et confirmation avant toute modification du cluster.
-            </p>
-          </div>
-        </div>
-
-        <div class="space-y-6">
-
+        <section class="space-y-4">
           <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px]">
-            Principales capacités
+            Architecture & intégration
           </h4>
 
-          <div class="space-y-6 pl-4 border-l border-white/5">
+          <p>
+            K-Guard repose sur une architecture
+            <strong>frontend Vue 3 / TypeScript</strong> et
+            <strong>backend FastAPI / Python</strong>.
+            Le navigateur ne communique pas directement avec les services
+            sensibles du cluster : les intégrations sont médiées par le backend,
+            qui centralise les accès et protège les credentials.
+          </p>
 
-            <div>
-              <p class="text-white font-bold mb-1">
-                1. System Overview & exploitation K3s
-              </p>
-              <p>
-                Suivi des workloads du cluster, de leur consommation CPU/RAM,
-                de leur état runtime et de leurs informations réseau, avec accès
-                aux logs et aux informations de diagnostic.
-              </p>
-            </div>
+          <p>
+            La plateforme agrège notamment les informations issues de
+            <strong>Kubernetes/K3s</strong>, <strong>Falco</strong>,
+            <strong>Wazuh</strong> et <strong>K-Guard AI</strong>, puis les
+            restitue dans des interfaces dédiées à l'exploitation et à la
+            sécurité.
+          </p>
+        </section>
 
-            <div>
-              <p class="text-white font-bold mb-1">
-                2. Runtime Security
-              </p>
-              <p>
-                <strong>Falco</strong> détecte les comportements suspects au
-                niveau runtime. Les événements sont transmis via
-                <strong>Fluent Bit</strong>, puis enrichis et analysés par
-                <strong>K-Guard AI</strong> avant leur restitution dans
-                l'interface de sécurité.
-              </p>
-            </div>
+        <section class="space-y-4">
+          <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px]">
+            Sécurité runtime & supervision
+          </h4>
 
-            <div>
-              <p class="text-white font-bold mb-1">
-                3. Endpoint & Compliance
-              </p>
-              <p>
-                L'intégration <strong>Wazuh</strong> fournit une visibilité
-                centralisée sur les endpoints supervisés : inventaire,
-                informations système, posture de sécurité et alertes.
-                L'intégration reste volontairement
-                <strong>read-only</strong>.
-              </p>
-            </div>
+          <p>
+            Le module <strong>Security Runtime</strong> exploite les événements
+            détectés par <strong>Falco</strong>. Ceux-ci sont transmis à travers
+            la chaîne de traitement puis enrichis par <strong>K-Guard AI</strong>
+            avant d'être présentés dans l'interface K-Guard.
+          </p>
 
-            <div>
-              <p class="text-white font-bold mb-1">
-                4. Network Sentinel
-              </p>
-              <p>
-                <strong>Network Sentinel</strong> analyse la posture réseau du
-                cluster, visualise les relations entre workloads et propose
-                des recommandations pour renforcer leur isolation.
-              </p>
-            </div>
+          <p>
+            L'intégration <strong>Wazuh</strong> apporte une visibilité
+            complémentaire sur les endpoints, leur posture de sécurité et leurs
+            alertes. Cette intégration est volontairement exposée en
+            <strong>lecture seule</strong> depuis K-Guard.
+          </p>
+        </section>
 
-            <div>
-              <p class="text-white font-bold mb-1">
-                5. Gouvernance des NetworkPolicies
-              </p>
-              <p>
-                Les NetworkPolicies peuvent être organisées par groupes et
-                ciblées sur des namespaces sélectionnés afin de faciliter une
-                mise en œuvre progressive de la segmentation réseau.
-                Les opérations nécessitent une sélection et une confirmation
-                explicites.
-              </p>
-            </div>
+        <section class="space-y-4">
+          <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px]">
+            Network Sentinel — gouvernance réseau
+          </h4>
 
-            <div>
-              <p class="text-white font-bold mb-1">
-                6. Alerting opérationnel
-              </p>
-              <p>
-                K-Guard peut transmettre les événements et notifications
-                opérationnelles vers <strong>Cisco Webex</strong> afin de
-                faciliter le suivi des incidents.
-              </p>
-            </div>
+          <p>
+            <strong>Network Sentinel</strong> constitue le volet le plus orienté
+            infrastructure du projet. Il analyse les relations entre workloads,
+            fournit une représentation de la topologie réseau et évalue la
+            posture de segmentation du cluster.
+          </p>
 
-            <div>
-              <p class="text-white font-bold mb-1">
-                7. Sécurité, automatisation & API
-              </p>
-              <p>
-                L'application s'appuie notamment sur
-                <strong>HTTPS/TLS</strong>, JWT, des
-                <strong>Secrets Kubernetes</strong>, FastAPI et des playbooks
-                <strong>Ansible</strong>. Une documentation
-                <strong>Swagger/OpenAPI</strong> permet également d'explorer
-                les API protégées.
-              </p>
-            </div>
+          <p>
+            La plateforme permet ensuite de travailler avec des groupes de
+            <strong>NetworkPolicies</strong>, de cibler des namespaces et de
+            contrôler leur activation ou leur retrait.
+            Les opérations sensibles nécessitent une
+            <strong>confirmation explicite</strong> afin de limiter le risque
+            d'une modification involontaire du cluster.
+          </p>
 
-          </div>
-        </div>
+          <p>
+            L'approche retenue est celle d'une
+            <strong>segmentation progressive</strong> : renforcer l'isolation
+            sans casser les flux nécessaires au DNS, à l'ingress, au monitoring,
+            aux applications et aux services de sécurité.
+          </p>
+        </section>
 
-      </section>
+        <section class="space-y-4">
+          <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px]">
+            Approche DevSecOps
+          </h4>
+
+          <p>
+            Le projet met en pratique plusieurs principes d'exploitation sécurisée :
+            séparation frontend/backend, protection des secrets, authentification
+            JWT, TLS, intégrations backend-médiées, contrôle explicite des actions
+            à privilèges et déploiement automatisé.
+          </p>
+
+          <p>
+            K-Guard dispose également d'une documentation API
+            <strong>OpenAPI/Swagger</strong>, d'un processus d'installation dédié
+            et d'une intégration de notifications opérationnelles via
+            <strong>Cisco Webex</strong>.
+          </p>
+        </section>
+
+        <section class="border-l-2 border-brand-gold/40 bg-brand-gold/5 px-4 py-4">
+          <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-2">
+            Ce que ce projet démontre
+          </p>
+
+          <p>
+            K-Guard démontre ma capacité à concevoir une solution autour d'un
+            environnement <strong>Kubernetes/K3s</strong>, à intégrer plusieurs
+            briques de sécurité et d'observabilité, à automatiser leur exploitation
+            et à prendre en compte les contraintes de sécurité liées aux opérations
+            d'infrastructure.
+          </p>
+        </section>
+
+      </div>
     `,
 
     repo: "https://github.com/KamouloxPelvis/K-Guard",
@@ -192,106 +195,147 @@ const PROJECTS_DATA: Project[] = [
   {
     id: "kguard-ai",
     href: "https://github.com/KamouloxPelvis/K-Guard-AI",
-    img: "/screenshots/k-guard-ai-illustration.png",
-    title: "K-Guard AI v0.6.0",
+    img: "/k-guard-ai-illustration.webp",
+    title: "K-Guard AI v0.8.0",
 
     stack:
       "Java 21 • Spring Boot 3.5 • Docker • GHCR • VPS • Actuator • Ollama • Elasticsearch • Kubernetes • LLMOps",
 
     shortDesc:
-      "Microservice chargé d'analyser et d'enrichir les alertes de sécurité utilisées par K-Guard.",
+      "Microservice Java/Spring Boot qui normalise, analyse et enrichit les alertes Falco avec un LLM local avant leur restitution dans K-Guard.",
 
     desc: `
       <div class="space-y-8 text-slate-300 font-sans text-[14px] leading-relaxed">
 
         <section>
-          <h4 class="text-brand-gold font-black text-sm mb-3 border-b border-brand-gold/10 pb-2 uppercase tracking-tighter">
-            K-Guard AI — Analyse et enrichissement des alertes
-          </h4>
+          <p class="text-white text-base leading-relaxed">
+            <strong>K-Guard AI</strong> est un microservice de traitement et
+            d'enrichissement d'événements de sécurité, développé en
+            <strong>Java 21 / Spring Boot</strong> pour compléter K-Guard.
+          </p>
 
-          <p class="mb-5">
-            <strong>K-Guard AI</strong> est un microservice
-            <strong>Java 21 / Spring Boot</strong> conçu pour transformer
-            des alertes de sécurité en informations plus facilement
-            exploitables par un analyste ou une plateforme DevSecOps.
+          <p class="mt-4">
+            Son rôle est de recevoir des événements de sécurité structurés,
+            notamment ceux produits par <strong>Falco</strong>, de les normaliser
+            et de produire une analyse exploitable par la plateforme de supervision.
           </p>
         </section>
 
-        <section class="space-y-6">
-
+        <section class="space-y-4">
           <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px]">
-            Principales capacités
+            Pipeline de traitement
           </h4>
 
-          <div class="space-y-6 pl-4 border-l border-white/5">
+          <p>
+            Le service expose une API d'ingestion dédiée aux événements Falco.
+            Les données reçues sont normalisées avant d'être transmises au service
+            d'analyse.
+          </p>
 
-            <div>
-              <p class="text-white font-bold mb-1">
-                1. Analyse des alertes
-              </p>
-              <p>
-                Le service valide et normalise les événements, estime leur
-                niveau de risque et génère un résumé accompagné d'actions
-                recommandées.
-              </p>
-            </div>
+          <p>
+            Le pipeline extrait notamment le contexte Kubernetes disponible dans
+            l'événement — <strong>namespace, pod, container, hôte et sévérité</strong> —
+            afin de transformer un événement brut en donnée structurée exploitable
+            par les composants de K-Guard.
+          </p>
 
-            <div>
-              <p class="text-white font-bold mb-1">
-                2. Intégration backend
-              </p>
-              <p>
-                Une API dédiée permet d'ingérer des événements structurés
-                depuis K-Guard ou une autre source.
-              </p>
-            </div>
-
-            <div>
-              <p class="text-white font-bold mb-1">
-                3. Enrichissement LLM local
-              </p>
-              <p>
-                L'architecture permet un enrichissement optionnel via
-                <strong>Ollama</strong>, tout en conservant un fonctionnement
-                déterministe lorsque l'IA est désactivée.
-              </p>
-            </div>
-
-            <div>
-              <p class="text-white font-bold mb-1">
-                4. Déploiement
-              </p>
-              <p>
-                Le service est conteneurisé avec <strong>Docker</strong>,
-                publié sur <strong>GHCR</strong> et supervisé avec
-                <strong>Spring Boot Actuator</strong>.
-              </p>
-            </div>
-
-            <div>
-              <p class="text-white font-bold mb-1">
-                5. Architecture orientée plateforme
-              </p>
-              <p>
-                Le microservice constitue une brique intermédiaire entre les
-                sources de détection comme <strong>Falco</strong> ou
-                <strong>Wazuh</strong> et les interfaces d'analyse ou de
-                restitution.
-              </p>
-            </div>
-
-            <div>
-              <p class="text-white font-bold mb-1">
-                6. LLMOps
-              </p>
-              <p>
-                Le projet met en pratique la séparation entre logique métier
-                et enrichissement IA, la configuration par environnement et
-                la possibilité de conserver un fonctionnement sans IA.
-              </p>
-            </div>
-
+          <div class="border-l border-brand-gold/30 pl-4 font-mono text-xs text-slate-400">
+            Falco → K-Guard AI → Normalisation → Analyse → K-Guard
           </div>
+        </section>
+
+        <section class="space-y-4">
+          <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px]">
+            Architecture du microservice
+          </h4>
+
+          <p>
+            L'application est structurée autour de contrôleurs REST, DTO,
+            services métier, configuration, gestion des exceptions et composants
+            dédiés à l'intégration LLM.
+          </p>
+
+          <p>
+            Cette séparation permet de conserver la logique de traitement des
+            alertes indépendante de la couche d'enrichissement IA et facilite
+            l'évolution du service comme composant autonome de la plateforme.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px]">
+            LLM local & maîtrise des données
+          </h4>
+
+          <p>
+            L'enrichissement IA s'appuie sur <strong>Ollama</strong>, permettant
+            d'utiliser un modèle local plutôt qu'une dépendance obligatoire à une
+            API LLM SaaS externe.
+          </p>
+
+          <p>
+            Ce choix permet d'expérimenter une architecture où le traitement des
+            événements de sécurité et la couche d'intelligence peuvent rester dans
+            l'environnement maîtrisé par l'opérateur.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px]">
+            Déploiement & exploitation
+          </h4>
+
+          <p>
+            Le service est conteneurisé et peut être déployé directement dans un
+            cluster <strong>Kubernetes/K3s</strong> à l'aide de manifests dédiés.
+            Le dépôt fournit également un <strong>installer Go</strong> proposant
+            une interface TUI ainsi qu'un mode CLI adapté à l'automatisation.
+          </p>
+
+          <p>
+            Le déploiement Kubernetes applique plusieurs mesures de durcissement :
+            exécution en utilisateur non privilégié, filesystem en lecture seule,
+            suppression des capabilities Linux inutiles et utilisation du profil
+            <strong>seccomp RuntimeDefault</strong>.
+          </p>
+
+          <p>
+            Une architecture alternative permet également un déploiement hors
+            cluster sur VPS avec <strong>systemd</strong> et
+            <strong>Nginx</strong>.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px]">
+            Intégration plateforme
+          </h4>
+
+          <p>
+            K-Guard AI est conçu comme une brique indépendante de K-Guard :
+            son API peut recevoir directement des événements Falco ou des alertes
+            normalisées provenant d'autres producteurs.
+          </p>
+
+          <p>
+            Le service peut également exporter les événements enrichis vers
+            <strong>Elasticsearch</strong>, ce qui permet de l'intégrer à une
+            chaîne d'observabilité ou de sécurité plus large.
+          </p>
+        </section>
+
+        <section class="border-l-2 border-brand-gold/40 bg-brand-gold/5 px-4 py-4">
+          <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-2">
+            Ce que ce projet démontre
+          </p>
+
+          <p>
+            K-Guard AI démontre ma capacité à concevoir et déployer un
+            <strong>microservice orienté infrastructure et sécurité</strong>,
+            à exposer une API REST, à traiter des événements Kubernetes/Falco,
+            à intégrer un LLM local et à prendre en compte les contraintes de
+            conteneurisation, de durcissement et d'exploitation.
+          </p>
         </section>
 
       </div>
@@ -299,12 +343,7 @@ const PROJECTS_DATA: Project[] = [
 
     repo: "https://github.com/KamouloxPelvis/K-Guard-AI",
 
-    screenshots: [
-      "/screenshots/k-guard-ai-illustration.png",
-      "/screenshots/k-guard-ai-illustration.png",
-      "/screenshots/k-guard-ai-illustration.png",
-      "/screenshots/k-guard-ai-illustration.png",
-    ],
+    screenshots: ["/k-guard-ai-illustration.webp"],
   },
 
   {

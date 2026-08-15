@@ -18,12 +18,12 @@ export const metadata: Metadata = {
 
   title: {
     default:
-      "Kamal Guidadou — Administrateur Systèmes & Réseaux | DevOps · DevSecOps · Cybersécurité",
+      "Kamal Guidadou — Administrateur Systèmes & Réseaux | Alternance Infrastructure, Cloud & DevOps",
     template: "%s | Kamal Guidadou",
   },
 
   description:
-    "Portfolio de Kamal Guidadou, administrateur systèmes et réseaux spécialisé en infrastructures sécurisées, DevOps, DevSecOps, automatisation et cybersécurité. Découvrez mes projets, compétences et formations, dont K-Guard, plateforme d’observabilité et de sécurité pour clusters K3s.",
+    "Administrateur systèmes et réseaux, Kamal Guidadou recherche un contrat de professionnalisation en Infrastructure, Cloud & DevOps à Sup de Vinci Rennes.",
 
   applicationName: "Portfolio de Kamal Guidadou",
 
@@ -47,6 +47,10 @@ export const metadata: Metadata = {
     "administrateur systèmes et réseaux",
     "administrateur systèmes",
     "administrateur réseaux",
+    "alternance DevOps",
+    "contrat de professionnalisation DevOps",
+    "Infrastructure Cloud DevOps",
+    "Sup de Vinci Rennes",
     "infrastructures sécurisées",
     "DevOps",
     "DevSecOps",
@@ -69,17 +73,17 @@ export const metadata: Metadata = {
     url: "https://devopsnotes.org/",
     siteName: "Kamal Guidadou — Portfolio",
 
-    title: "Kamal Guidadou — Administrateur Systèmes & Réseaux",
+    title: "Kamal Guidadou — Alternance Infrastructure, Cloud & DevOps",
 
     description:
-      "Administrateur systèmes et réseaux orienté DevOps, DevSecOps, automatisation, infrastructures sécurisées et cybersécurité. Découvrez mes projets, compétences et K-Guard.",
+      "Administrateur systèmes et réseaux, titulaire du titre professionnel Administrateur d’Infrastructures Sécurisées, à la recherche d’un contrat de professionnalisation en Infrastructure, Cloud & DevOps.",
 
     images: [
       {
         url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Kamal Guidadou — Administrateur Systèmes & Réseaux, DevOps, DevSecOps et Cybersécurité",
+        width: 1731,
+        height: 909,
+        alt: "Kamal Guidadou — Administrateur Systèmes & Réseaux, alternance Infrastructure, Cloud & DevOps",
       },
     ],
   },
@@ -87,10 +91,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "Kamal Guidadou — Administrateur Systèmes & Réseaux",
+    title: "Kamal Guidadou — Alternance Infrastructure, Cloud & DevOps",
 
     description:
-      "Portfolio professionnel de Kamal Guidadou : systèmes, réseaux, DevOps, DevSecOps, automatisation et cybersécurité.",
+      "Administrateur systèmes et réseaux à la recherche d’un contrat de professionnalisation en Infrastructure, Cloud & DevOps.",
 
     images: ["/og-image.png"],
   },

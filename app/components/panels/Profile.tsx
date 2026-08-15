@@ -18,7 +18,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
       <div className="space-y-6 pr-32">
 
         <div className="inline-block border border-brand-flame-h px-3 py-1 text-[10px] font-mono text-brand-flame-h uppercase tracking-widest">
-          Ouvert aux opportunités
+          Alternance · contrat de professionnalisation · rentrée 2026
         </div>
 
         <div className="flex items-center gap-6">
@@ -45,7 +45,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
               </p>
 
               <p className="text-[10px] md:text-[11px] font-mono text-brand-flame-p tracking-widest uppercase mt-1">
-                DevOps · DevSecOps · Cybersécurité
+                Candidat alternance · Infrastructure · Cloud · DevOps
               </p>
             </div>
           </div>
@@ -62,17 +62,19 @@ export default function Profil({ onContactClick }: ProfilProps) {
         <div className="space-y-5 text-[11px] md:text-[15px] font-sans text-slate-300 leading-relaxed">
 
           <p>
-            Je travaille sur l’administration et la sécurisation des
-            infrastructures systèmes et réseaux, avec un intérêt particulier
-            pour l’automatisation, le cloud et les environnements
-            conteneurisés.
+            Administrateur systèmes et réseaux, titulaire du titre professionnel
+            <span className="text-brand-skull font-bold"> Administrateur d&apos;Infrastructures Sécurisées</span>,{' '}
+            je recherche un contrat de professionnalisation pour poursuivre ce
+            parcours au sein du Mastère <span className="text-brand-skull font-bold">Infrastructure, Cloud &amp; DevOps</span>{' '}
+            à Sup de Vinci Rennes. Je reste également ouvert aux
+            opportunités d&apos;emploi en administration systèmes et réseaux.
           </p>
 
           <p>
-            Mon parcours m’a progressivement conduit du développement vers
-            l’administration d’infrastructures. Cette double culture me permet
-            d’aborder un environnement technique aussi bien par le code que
-            par son exploitation.
+            Mon parcours m&apos;a progressivement conduit du développement vers
+            l&apos;administration et la sécurisation d&apos;infrastructures. Cette
+            double culture me permet d&apos;aborder un environnement technique par
+            le code comme par son exploitation.
           </p>
 
           <p>
@@ -89,15 +91,39 @@ export default function Profil({ onContactClick }: ProfilProps) {
         </div>
       </div>
 
+      {/* Valeur apportée */}
+      <section className="max-w-3xl mt-8 border-t border-brand-gold/20 pt-6">
+        <p className="text-[10px] md:text-xs font-mono text-brand-gold uppercase tracking-[0.25em] mb-4">
+          Ce que je peux apporter dès l&apos;alternance
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-[11px] md:text-sm leading-relaxed text-slate-300">
+          <div className="border border-white/10 bg-black/20 p-4">
+            <p className="font-bold text-brand-skull mb-1">Exploitation &amp; fiabilité</p>
+            <p>Administration Linux et Windows, supervision, diagnostic et maintien en condition opérationnelle.</p>
+          </div>
+
+          <div className="border border-white/10 bg-black/20 p-4">
+            <p className="font-bold text-brand-skull mb-1">Automatisation</p>
+            <p>Scripting PowerShell et Python, Ansible, API et CI/CD pour fiabiliser les tâches récurrentes.</p>
+          </div>
+
+          <div className="border border-white/10 bg-black/20 p-4">
+            <p className="font-bold text-brand-skull mb-1">Cloud &amp; sécurité</p>
+            <p>Conteneurs, Kubernetes/K3s, observabilité et pratiques DevSecOps appliquées à des projets concrets.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Actions */}
       <div className="flex flex-wrap gap-4 pt-6 pb-2 mt-auto">
 
         <a
-          href="/docs/CV_SecInfra_Admin_Automatisation.pdf"
+          href="/docs/CV_Alt_Infra_Cloud_DevOps.pdf"
           download
           className="flex-1 md:flex-none px-8 py-4 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:brightness-110 transition-all"
         >
-          Télécharger mon CV
+          Télécharger mon CV alternance
         </a>
 
         <a
