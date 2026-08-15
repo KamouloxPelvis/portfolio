@@ -136,8 +136,8 @@ const PROJECTS_DATA = [
   {
     id: 'kguard-ai',
     href: "https://github.com/KamouloxPelvis/K-Guard-AI",
-    img: "/screenshots/k-guard-ai-illustration.png",
-    title: "K-Guard AI v0.6.0",
+    img: "/k-guard-ai-illustration.webp",
+    title: "K-Guard AI v0.8.0",
     stack: "Java 21 • Spring Boot 3.5 • Docker • GHCR • VPS • Actuator • Ollama • Elasticsearch • Kubernetes • LLMOps",
     shortDesc: "Microservice Java d’analyse et d’enrichissement d’alertes sécurité IA avec triage déterministe et préparation LLM locale via Ollama.",
     desc: `
