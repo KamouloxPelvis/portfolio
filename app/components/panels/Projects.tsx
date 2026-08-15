@@ -192,7 +192,7 @@ const PROJECTS_DATA: Project[] = [
   {
     id: "kguard-ai",
     href: "https://github.com/KamouloxPelvis/K-Guard-AI",
-    img: "/k-guard-ai-illustration.png",
+    img: "/k-guard-ai-illustration.webp",
     title: "K-Guard AI v0.6.0",
 
     stack:
