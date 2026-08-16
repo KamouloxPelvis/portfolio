@@ -195,7 +195,7 @@ const PROJECTS_DATA: Project[] = [
   {
     id: "kguard-ai",
     href: "https://github.com/KamouloxPelvis/K-Guard-AI",
-    img: "/k-guard-ai-illustration.webp",
+    img: "/screenshots/kguard-ai-3.png",
     title: "K-Guard AI v0.8.0",
 
     stack:
@@ -343,7 +343,12 @@ const PROJECTS_DATA: Project[] = [
 
     repo: "https://github.com/KamouloxPelvis/K-Guard-AI",
 
-    screenshots: ["/k-guard-ai-illustration.webp"],
+    screenshots: [
+      "/screenshots/kguard-ai-1.png",
+      "/screenshots/kguard-ai-2.png",
+      "/screenshots/kguard-ai-3.png",
+      "/screenshots/kguard-ai-4.png",
+    ],
   },
 
   {

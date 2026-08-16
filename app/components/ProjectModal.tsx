@@ -179,10 +179,10 @@ export default function ProjectModal({
       ],
 
       'kguard-ai': [
-        "Réponse JSON d'analyse : corrélation, niveau de risque, score de confiance et actions recommandées",
-        "Healthchecks Spring Boot Actuator : endpoints health, liveness et readiness validés sur le VPS",
-        "Arborescence de déploiement VPS : structure centralisée avec deploy, tests, notes et artefacts",
-        "Flux d'intégration K-Guard → K-Guard AI : ingestion normalisée et analyse backend orientée DevSecOps / LLMOps",
+        "Runtime Security & IA : détection Falco d'un appel API Server Kubernetes et contextualisation automatique par l'assistant K-Guard AI",
+        "Investigation Assistant : focus sur l'évaluation de risque (Low) et l'indice de confiance de l'inférence locale (60%)",
+        "Runtime Security & IA : analyse d'une tentative d'élévation de privilèges (« Read sensitive file untrusted ») par le moteur LLM",
+        "Investigation Assistant : synthèse de menace en langage naturel, niveau de risque (Medium) et score de confiance élevé (85%)",
       ],
     };
 
