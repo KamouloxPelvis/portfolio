@@ -18,7 +18,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
       <div className="space-y-6 pr-32">
 
         <div className="inline-block border border-brand-flame-h px-3 py-1 text-[10px] font-mono text-brand-flame-h uppercase tracking-widest">
-          Alternance · contrat de professionnalisation · rentrée 2026
+          Alternance Mastère · Contrat pro / Apprentissage · Rentrée 2026
         </div>
 
         <div className="flex items-center gap-6">
@@ -45,7 +45,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
               </p>
 
               <p className="text-[10px] md:text-[11px] font-mono text-brand-flame-p tracking-widest uppercase mt-1">
-                Candidat alternance · Infrastructure · Cloud · DevOps
+                Alternance Mastère / Master · Infrastructure · Cloud · DevOps
               </p>
             </div>
           </div>
@@ -64,9 +64,9 @@ export default function Profil({ onContactClick }: ProfilProps) {
           <p>
             Administrateur systèmes et réseaux, titulaire du titre professionnel
             <span className="text-brand-skull font-bold"> Administrateur d&apos;Infrastructures Sécurisées</span>,{' '}
-            je recherche un contrat de professionnalisation pour poursuivre ce
-            parcours au sein du Mastère <span className="text-brand-skull font-bold">Infrastructure, Cloud &amp; DevOps</span>{' '}
-            à Sup de Vinci Rennes. Je reste également ouvert aux
+            je recherche une alternance pour poursuivre mon cursus en
+            Mastère / Master <span className="text-brand-skull font-bold">Infrastructure, Cloud &amp; DevOps</span>{' '}
+            (admis à Sup de Vinci Rennes, ouvert aux opportunités en Bretagne, télétravail et mobilité). Je reste également ouvert aux
             opportunités d&apos;emploi en administration systèmes et réseaux.
           </p>
 

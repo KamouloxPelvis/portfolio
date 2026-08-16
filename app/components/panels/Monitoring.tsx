@@ -9,9 +9,9 @@ export default function Monitoring() {
 
         {/* Header */}
         <div className="border-b border-white/10 pb-4">
-          <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull tracking-tighter">
+          <h2 className="text-2xl md:text-4xl font-black uppercase text-brand-skull tracking-tighter">
             Observabilité <span className="text-brand-flame-p">&</span> Monitoring
-          </h3>
+          </h2>
 
           <div className="flex flex-col gap-1 mt-2">
             <p className="text-[10px] md:text-xs font-mono text-brand-flame-p uppercase tracking-widest">
@@ -19,13 +19,13 @@ export default function Monitoring() {
             </p>
 
             <a
-              href="https://monitoring.devopsnotes.org"
+              href="https://monitoring.devopsnotes.org/public-dashboards/b6512783d66a42bcbc85c29d8fdc4feb"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[10px] md:text-xs font-mono text-brand-gold hover:text-white transition-colors duration-300 break-all flex items-center gap-2"
             >
               <span className="text-brand-flame-p">●</span>
-              Ouvrir le dashboard Grafana
+              Ouvrir le dashboard public Grafana
             </a>
           </div>
         </div>
@@ -116,7 +116,7 @@ export default function Monitoring() {
             <div className="absolute top-0 left-0 w-full h-1 bg-brand-flame-p opacity-50 group-hover:opacity-100 transition-opacity z-20" />
 
             <iframe
-              src="https://monitoring.devopsnotes.org/d-solo/adhcf46/30d8745?orgId=1&from=now-1h&to=now&theme=dark&panelId=panel-1&kiosk=tv&refresh=1m"
+              src="https://monitoring.devopsnotes.org/public-dashboards/b6512783d66a42bcbc85c29d8fdc4feb"
               className="w-full h-full grayscale-30 group-hover:grayscale-0 transition-all duration-700"
               title="Dashboard Grafana de supervision du cluster K3s"
             />

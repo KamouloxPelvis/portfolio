@@ -348,7 +348,7 @@ const PROJECTS_DATA: Project[] = [
 
   {
     id: "monitoring",
-    href: "https://monitoring.devopsnotes.org",
+    href: "https://monitoring.devopsnotes.org/public-dashboards/b6512783d66a42bcbc85c29d8fdc4feb",
     img: "/screenshots/capture_monitoring.png",
     title: "Infrastructure de monitoring",
 

@@ -18,12 +18,12 @@ export const metadata: Metadata = {
 
   title: {
     default:
-      "Kamal Guidadou — Administrateur Systèmes & Réseaux | Alternance Infrastructure, Cloud & DevOps",
+      "Kamal Guidadou — Administrateur Systèmes & Réseaux | Alternance Mastère Infrastructure, Cloud & DevOps",
     template: "%s | Kamal Guidadou",
   },
 
   description:
-    "Administrateur systèmes et réseaux, Kamal Guidadou recherche un contrat de professionnalisation en Infrastructure, Cloud & DevOps à Sup de Vinci Rennes.",
+    "Portfolio de Kamal Guidadou — Administrateur Systèmes & Réseaux (Titre AIS, Cisco DevNet). Candidat en alternance Mastère / Master Infrastructure, Cloud & DevOps (contrat pro / apprentissage) et ouvert aux postes en administration d'infrastructures.",
 
   applicationName: "Portfolio de Kamal Guidadou",
 
@@ -47,10 +47,21 @@ export const metadata: Metadata = {
     "administrateur systèmes et réseaux",
     "administrateur systèmes",
     "administrateur réseaux",
+    "administrateur infrastructures sécurisées",
+    "ingénieur DevOps junior",
     "alternance DevOps",
+    "alternance Cloud",
+    "alternance infrastructure",
+    "alternance administrateur systèmes",
     "contrat de professionnalisation DevOps",
-    "Infrastructure Cloud DevOps",
-    "Sup de Vinci Rennes",
+    "contrat d'apprentissage DevOps",
+    "mastère infrastructure cloud et devops",
+    "mastère DevOps",
+    "master DevOps",
+    "master cloud computing",
+    "master informatique alternance",
+    "bac+5 DevOps",
+    "infrastructures cloud",
     "infrastructures sécurisées",
     "DevOps",
     "DevSecOps",
@@ -60,11 +71,27 @@ export const metadata: Metadata = {
     "K3s",
     "Docker",
     "Linux",
+    "Debian",
     "Windows Server",
+    "Active Directory",
     "Cisco",
+    "Cisco DevNet",
     "observabilité",
+    "Prometheus",
+    "Grafana",
+    "Wazuh",
+    "Falco",
     "Infrastructure as Code",
+    "Ansible",
     "CI/CD",
+    "GitLab CI",
+    "GitHub Actions",
+    "FastAPI",
+    "Spring Boot",
+    "Rennes",
+    "Bretagne",
+    "télétravail",
+    "France",
   ],
 
   openGraph: {
@@ -73,17 +100,18 @@ export const metadata: Metadata = {
     url: "https://devopsnotes.org/",
     siteName: "Kamal Guidadou — Portfolio",
 
-    title: "Kamal Guidadou — Alternance Infrastructure, Cloud & DevOps",
+    title:
+      "Kamal Guidadou — Administrateur Systèmes & Réseaux | Alternance Mastère Infrastructure, Cloud & DevOps",
 
     description:
-      "Administrateur systèmes et réseaux, titulaire du titre professionnel Administrateur d’Infrastructures Sécurisées, à la recherche d’un contrat de professionnalisation en Infrastructure, Cloud & DevOps.",
+      "Administrateur systèmes et réseaux (Titre Pro AIS, Cisco DevNet). Candidat en alternance Mastère / Master Infrastructure, Cloud & DevOps et ouvert aux opportunités en administration systèmes et réseaux.",
 
     images: [
       {
         url: "/og-image.png",
         width: 1731,
         height: 909,
-        alt: "Kamal Guidadou — Administrateur Systèmes & Réseaux, alternance Infrastructure, Cloud & DevOps",
+        alt: "Kamal Guidadou — Administrateur Systèmes & Réseaux, Alternance Mastère Infrastructure, Cloud & DevOps",
       },
     ],
   },
@@ -91,10 +119,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "Kamal Guidadou — Alternance Infrastructure, Cloud & DevOps",
+    title:
+      "Kamal Guidadou — Administrateur Systèmes & Réseaux | Alternance Mastère Infrastructure, Cloud & DevOps",
 
     description:
-      "Administrateur systèmes et réseaux à la recherche d’un contrat de professionnalisation en Infrastructure, Cloud & DevOps.",
+      "Administrateur systèmes et réseaux à la recherche d’une alternance en Mastère / Master Infrastructure, Cloud & DevOps ou d’un poste en administration d'infrastructures.",
 
     images: ["/og-image.png"],
   },
@@ -129,6 +158,66 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://devopsnotes.org/#person",
+      "name": "Kamal Guidadou",
+      "url": "https://devopsnotes.org",
+      "jobTitle": [
+        "Administrateur Systèmes & Réseaux",
+        "Candidat Alternance Mastère Infrastructure, Cloud & DevOps",
+        "Spécialiste DevSecOps & Automatisation"
+      ],
+      "description": "Administrateur systèmes et réseaux certifié (Titre Pro AIS, Cisco DevNet Associate), spécialisé en conteneurisation K3s, sécurité runtime (Falco, Wazuh), automatisation Ansible et observabilité.",
+      "sameAs": [
+        "https://www.linkedin.com/in/kamal-guidadou",
+        "https://github.com/KamouloxPelvis",
+        "https://gitlab.com/portfolio-kamal-guidadou",
+        "https://tryhackme.com/p/KamouloxPelvis",
+        "https://www.root-me.org/KamouloxPelvis"
+      ],
+      "knowsAbout": [
+        "Administration Systèmes et Réseaux",
+        "Cloud Computing & Virtualisation",
+        "DevOps & DevSecOps",
+        "Kubernetes & K3s",
+        "Docker & Conteneurisation",
+        "Sécurité des Systèmes d'Information",
+        "Automatisation & Scripting (Python, Bash, PowerShell, Ansible)",
+        "Observabilité & Monitoring (Prometheus, Grafana, ELK)",
+        "Réseaux Cisco & Protocoles de routage",
+        "Active Directory & Windows Server",
+        "Linux (Debian, Ubuntu Server)"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "AFPA",
+          "description": "Titre Professionnel Administrateur d'Infrastructures Sécurisées (AIS)"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Cisco Networking Academy",
+          "description": "Cisco DevNet Associate"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://devopsnotes.org/#website",
+      "url": "https://devopsnotes.org",
+      "name": "Kamal Guidadou — Portfolio & Projets DevOps / Cloud / Systèmes",
+      "publisher": {
+        "@id": "https://devopsnotes.org/#person"
+      },
+      "inLanguage": "fr-FR"
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -136,6 +225,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-brand-bg`}
