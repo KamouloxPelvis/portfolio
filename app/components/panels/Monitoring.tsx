@@ -116,9 +116,9 @@ export default function Monitoring() {
             <div className="absolute top-0 left-0 w-full h-1 bg-brand-flame-p opacity-50 group-hover:opacity-100 transition-opacity z-20" />
 
             <iframe
-              src="https://monitoring.devopsnotes.org/public-dashboards/b6512783d66a42bcbc85c29d8fdc4feb"
+              src="https://monitoring.devopsnotes.org/d-solo/devsecops-k3s-overview?orgId=1&panelId=8&theme=dark&refresh=30s"
               className="w-full h-full grayscale-30 group-hover:grayscale-0 transition-all duration-700"
-              title="Dashboard Grafana de supervision du cluster K3s"
+              title="Supervision K3s - Répartition des Statuts HTTP Ingress"
             />
 
             <div className="absolute bottom-4 right-4 z-30 opacity-0 group-hover:opacity-100 transition-all duration-500">
