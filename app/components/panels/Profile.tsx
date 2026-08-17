@@ -118,7 +118,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
       <div className="flex flex-wrap gap-4 pt-6 pb-2 mt-auto">
 
         <a
-          href="/docs/CV_Alt_Infra_Cloud_DevOps.pdf"
+          href="/docs/CV_Alt_Inge_DevSecOps_generaliste.pdf"
           download
           className="flex-1 md:flex-none px-8 py-4 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:brightness-110 transition-all"
         >
