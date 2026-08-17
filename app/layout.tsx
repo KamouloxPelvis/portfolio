@@ -18,12 +18,12 @@ export const metadata: Metadata = {
 
   title: {
     default:
-      "Kamal Guidadou — Administrateur Systèmes & Réseaux | Alternance Mastère Infrastructure, Cloud & DevOps",
+      "Kamal Guidadou — Administrateur Systèmes & Réseaux | Alternance Bac+5 DevSecOps, Cloud & Cybersécurité",
     template: "%s | Kamal Guidadou",
   },
 
   description:
-    "Portfolio de Kamal Guidadou — Administrateur Systèmes & Réseaux (Titre AIS, Cisco DevNet). Candidat en alternance Mastère / Master Infrastructure, Cloud & DevOps (contrat pro / apprentissage) et ouvert aux postes en administration d'infrastructures.",
+    "Portfolio de Kamal Guidadou — Administrateur Systèmes & Réseaux (Titre AIS, Cisco DevNet). Admis en Mastère DevOps (Sup de Vinci) & Master Cyber (CNAM Bretagne). Candidat en alternance Bac+5 et ouvert aux opportunités en administration d'infrastructures.",
 
   applicationName: "Portfolio de Kamal Guidadou",
 
