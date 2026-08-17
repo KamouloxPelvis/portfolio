@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Portfolio de Kamal Guidadou — Administrateur Systèmes & Réseaux (Titre AIS, Cisco DevNet). Admis en Mastère DevOps (Sup de Vinci) & Master Cyber (CNAM Bretagne). Candidat en alternance Bac+5 et ouvert aux opportunités en administration d'infrastructures.",
+    "Portfolio de Kamal Guidadou — Administrateur Systèmes & Réseaux (Titre AIS, Cisco DevNet). Admis en Mastère Infrastructure, Cloud & DevOps (Sup de Vinci) & Master Sécurité informatique, Cybersécurité et Cybermenaces (CNAM Bretagne). Candidat en alternance Bac+5 et ouvert aux opportunités en administration d'infrastructures.",
 
   applicationName: "Portfolio de Kamal Guidadou",
 

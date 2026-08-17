@@ -65,8 +65,8 @@ export default function Profil({ onContactClick }: ProfilProps) {
             Administrateur systèmes et réseaux, titulaire du titre professionnel
             <span className="text-brand-skull font-bold"> Administrateur d&apos;Infrastructures Sécurisées</span> (Bac+3/4) et certifié Cisco DevNet,{' '}
             je me spécialise à la jonction du DevOps et de la sécurité opérationnelle.
-            Admis en cursus Bac+5 en <span className="text-brand-skull font-bold">Mastère DevOps &amp; Cloud (Sup de Vinci)</span> ainsi qu&apos;en{' '}
-            <span className="text-brand-skull font-bold">Master Cybersécurité (CNAM Bretagne)</span>, je recherche mon alternance pour la rentrée 2026 afin d&apos;aligner mon contrat sur les enjeux techniques (DevSecOps, Cloud ou SOC) de mon entreprise d&apos;accueil. Je reste également à l&apos;écoute d&apos;opportunités d&apos;emploi en administration d&apos;infrastructures.
+            Admis en cursus Bac+5 en <span className="text-brand-skull font-bold">Mastère Infrastructure, Cloud &amp; DevOps (Sup de Vinci)</span> ainsi qu&apos;au{' '}
+            <span className="text-brand-skull font-bold">Master Sécurité informatique, Cybersécurité et Cybermenaces (CNAM Bretagne)</span>, je recherche mon alternance pour la rentrée 2026 afin d&apos;aligner mon contrat sur les enjeux techniques (DevSecOps, Cloud ou SOC) de mon entreprise d&apos;accueil. Je reste également à l&apos;écoute d&apos;opportunités d&apos;emploi en administration d&apos;infrastructures.
           </p>
 
           <p>
