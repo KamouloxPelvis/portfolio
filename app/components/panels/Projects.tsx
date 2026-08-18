@@ -23,7 +23,7 @@ export interface Project {
 const PROJECTS_DATA: Project[] = [
   {
     id: "kguard",
-    href: "https://app.devopsnotes.org",
+    href: "https://k-guard.devopsnotes.org",
     img: "/screenshots/capture_sec-infra-app.jpg",
     title: "K-Guard v1.7.0",
 
