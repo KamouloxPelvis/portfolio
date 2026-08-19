@@ -15,6 +15,7 @@ export interface Project {
   shortDesc: string;
   repo?: string;
   blogUrl?: string;
+  demoUrl?: string;
   videoPitch?: string;
   architectureDoc?: string;
   screenshots?: string[];
@@ -24,6 +25,7 @@ const PROJECTS_DATA: Project[] = [
   {
     id: "kguard",
     href: "https://k-guard.devopsnotes.org",
+    demoUrl: "https://k-guard.devopsnotes.org",
     img: "/screenshots/capture_sec-infra-app.jpg",
     title: "K-Guard v1.7.0",
 

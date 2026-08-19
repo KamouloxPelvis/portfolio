@@ -336,6 +336,34 @@ export default function ProjectModal({
               "
             >
 
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex
+                    items-center
+                    gap-2
+                    px-5 py-2.5
+                    bg-brand-gold/10
+                    border border-brand-gold/60
+                    text-brand-gold
+                    text-[10px]
+                    font-bold
+                    uppercase
+                    tracking-widest
+                    hover:bg-brand-gold/20
+                    hover:border-brand-gold
+                    hover:text-white
+                    transition-all
+                  "
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Démo interactive
+                </a>
+              )}
+
               {project.repo && (
                 <a
                   href={project.repo}
@@ -683,8 +711,37 @@ export default function ProjectModal({
                   `}
                 >
 
+                  {project.demoUrl && (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        inline-flex
+                        items-center
+                        gap-2
+                        px-5 py-2.5
+                        bg-brand-gold/10
+                        border border-brand-gold/60
+                        text-brand-gold
+                        text-[10px]
+                        font-bold
+                        uppercase
+                        tracking-widest
+                        hover:bg-brand-gold/20
+                        hover:border-brand-gold
+                        hover:text-white
+                        transition-all
+                      "
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      Démo interactive
+                    </a>
+                  )}
+
                   {project.id !== 'kguard' &&
                     project.id !== 'kguard-ai' &&
+                    !project.demoUrl &&
                     project.href && (
                       <a
                         href={project.href}
