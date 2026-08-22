@@ -19,7 +19,7 @@ export default function Monitoring() {
             </p>
 
             <a
-              href="https://monitoring.devopsnotes.org/public-dashboards/b6512783d66a42bcbc85c29d8fdc4feb"
+              href="https://monitoring.devopsnotes.org/d/devsecops-k3s-overview/cluster-k3s-observabilite-et-devsecops?orgId=1&refresh=30s"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[10px] md:text-xs font-mono text-brand-gold hover:text-white transition-colors duration-300 break-all flex items-center gap-2"
